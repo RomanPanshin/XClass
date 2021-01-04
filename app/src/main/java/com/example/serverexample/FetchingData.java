@@ -16,13 +16,12 @@ import java.net.URL;
 
 public class FetchingData extends AsyncTask<Void, Void, Void> {
     String data = "";
-   // String singleData = "";
     String parsedData = "";
+    private static final String adress = "http://borovik.fun:8080/auth";
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            URL url = new URL("http://borovik.fun:8080/auth");
-
+            URL url = new URL(adress);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

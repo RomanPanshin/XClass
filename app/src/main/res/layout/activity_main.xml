@@ -15,5 +15,27 @@
 
         android:id="@+id/data"
         android:layout_width="300dp"
-        android:layout_height="616dp"/>
+        android:layout_height="105dp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="email"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="password"/>
+    <Button
+        android:id="@+id/post"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Go"/>
+<TextView
+    android:id="@+id/txt3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
 </LinearLayout>
