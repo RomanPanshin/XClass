@@ -1,7 +1,5 @@
 package com.example.serverexample;
 
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,15 +11,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.concurrent.ExecutionException;
 
 
 
-public class MainActivity extends Activity {
-    public Button connectButton, postButton;
-   public static TextView data, jj;
+public class MainActivity extends AppCompatActivity {
+    public Button postButton;
+   public static TextView data;
    public EditText emailTxt, passwordTxt;
     public static String request="", claim="";
     public  String emailString="", passwordString="";
@@ -37,18 +35,10 @@ public class MainActivity extends Activity {
         postButton =  findViewById(R.id.postbutton);
         emailTxt =  findViewById(R.id.email);
         passwordTxt =  findViewById(R.id.password);
-        jj = findViewById(R.id.textView2);
+
         context = getApplicationContext();
         
-       /* connectButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-            FetchingData process = new FetchingData();
-            process.execute();
-            }
-        });
-*/
         postButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -69,12 +59,7 @@ public class MainActivity extends Activity {
             FetchingResponse.emailTxt = emailString;
             FetchingResponse.passwordTxt = passwordString;
                 FetchingResponse process = new FetchingResponse();
-                /*process.execute();
-               if(process.getStatus() == AsyncTask.Status.FINISHED){
-                    System.out.println(request);
-                    Intent intent = new Intent(MainActivity.this, TeacherActivity.class);
-                    startActivity(intent);
-                }*/
+
                 try {
                     request= process.execute().get();
                 } catch (ExecutionException e) {

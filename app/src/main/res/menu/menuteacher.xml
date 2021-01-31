@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeworkBTN"
+        android:title="Домашняя работа"
+        android:icon="@drawable/journal2"
+        android:textColor="#3F3D56"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"/>
+    <item
+        android:id="@+id/journalBTN"
+        android:title="Журнал"
+        android:icon="@drawable/people"
+        android:textColor="#3F3D56"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"/>
+    <item
+        android:id="@+id/scheduleBTN"
+        android:title="Расписание"
+        android:icon="@drawable/schedulelist"
+        android:textColor="#3F3D56"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+       />
+</menu>

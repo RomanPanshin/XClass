@@ -5,27 +5,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+  >
 
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/topauth"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="355dp"
+        android:layout_height="274dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/authcenter"
+        app:layout_constraintBottom_toTopOf="@+id/postbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.073" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="117dp"
-        android:layout_marginLeft="117dp"
         android:layout_marginTop="113dp"
-        android:layout_marginEnd="117dp"
-        android:layout_marginRight="117dp"
         android:layout_marginBottom="578dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Вход в систему"
         android:textColor="@color/colorText"
         android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206" />
 
     <EditText
         android:id="@+id/email"
@@ -71,31 +96,28 @@
         android:id="@+id/postbutton"
         android:layout_width="364dp"
         android:layout_height="52dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/buttonwithshadow"
         android:text="ВОЙТИ"
         android:textColor="@color/colorText"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.659"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <TextView
-
-        android:id="@+id/textView2"
-        android:layout_width="314dp"
-        android:layout_height="142dp"
-        android:layout_marginStart="166dp"
-        android:layout_marginLeft="166dp"
-        android:layout_marginTop="451dp"
-        android:layout_marginEnd="245dp"
-        android:layout_marginRight="245dp"
-        android:layout_marginBottom="261dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/postbutton"
+        app:layout_constraintVertical_bias="0.569"
+        app:srcCompat="@drawable/authpicture" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,8 @@
 package com.example.serverexample;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class Person {
     public static String name;
     public static String key;
@@ -7,8 +10,10 @@ public class Person {
     public static String uId;
     public static String idclass;
 
+
     public Person() {
     }
+
 
     //потом поменять модификаторы доступа у переменных
 

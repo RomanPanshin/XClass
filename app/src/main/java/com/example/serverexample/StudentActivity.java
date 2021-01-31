@@ -2,8 +2,14 @@ package com.example.serverexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -20,17 +26,23 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class StudentActivity extends AppCompatActivity {
+    HashMap<String, String> schedule;
     JSONObject structure;
-    String data = "";
-    TextView textView;
+    TextView textView, mon, tue, wed,thu, fri, sat, sun, noLes;
     ListView lv;
-String id="", name="", teacher="", idclass="", number="";
+    String id="", name="", teacher="", idclass="", number="", weekday_name="", data = "";
     ArrayList<HashMap<String, String>> scheduleList;
-    private static String jsonurl = "http://borovik.fun:8080/lessons/getSchedule?classId=" + Person.idclass + "&dayOfWeek=Monday";
+    ImageView imageView;
+    private static String jsonurl ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +50,42 @@ String id="", name="", teacher="", idclass="", number="";
         setContentView(R.layout.activity_student);
 
         textView = findViewById(R.id.check);
+        noLes  = findViewById(R.id.textView13);
+
+        mon = findViewById(R.id.textViewMonday);
+        tue = findViewById(R.id.textViewTuesday);
+        wed = findViewById(R.id.textViewWednesday);
+        thu = findViewById(R.id.textViewThursday);
+        fri = findViewById(R.id.textViewFriday);
+        sat = findViewById(R.id.textViewSaturday);
+        sun = findViewById(R.id.textViewSunday);
+
+        imageView = findViewById(R.id.noLessons);
         lv = findViewById(R.id.listView);
-        textView.setText("Имя: "+ Person.name + "\n" + "Класс: "+ Person.idclass);
+        textView.setText(Person.name + "\n" + Person.idclass.replace('_', ' '));
 
         scheduleList = new ArrayList<>();
+        weekday_name = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());
+        jsonurl = "http://borovik.fun:8080/lessons/getSchedule?classId=" + Person.idclass + "&dayOfWeek=" + weekday_name;
 
-
+       if(!weekday_name.equals("Saturday") && !weekday_name.equals("Sunday")){
         GetShedule getShedule = new GetShedule();
         getShedule.execute();
+       }else{
+           lv.setEnabled(false);
+            imageView.setVisibility(View.VISIBLE);
+            noLes.setVisibility(View.VISIBLE);
+       }
+
+        switch (weekday_name){
+            case ("Monday"): mon.setBackgroundResource(R.drawable.blueround); break;
+            case ("Tuesday"): tue.setBackgroundResource(R.drawable.blueround); break;
+            case ("Wednesday"): wed.setBackgroundResource(R.drawable.blueround); break;
+            case ("Thursday"): thu.setBackgroundResource(R.drawable.blueround); break;
+            case ("Friday"): fri.setBackgroundResource(R.drawable.blueround); break;
+            case ("Saturday"): sat.setBackgroundResource(R.drawable.blueround); break;
+            case ("Sunday"): sun.setBackgroundResource(R.drawable.blueround); break;
+        }
     }
 
 
@@ -106,11 +146,11 @@ public class GetShedule extends AsyncTask<String, String, String>{
 
                     number = structure.getString("numLesson");
                     System.out.println(number);
-                    HashMap<String, String> schedule = new HashMap<>();
+                    schedule = new HashMap<>();
                     schedule.put("LessonName", name);
                     schedule.put("TeacherName", teacher);
                     schedule.put("numLesson", number);
-
+                    schedule.put("idLesson", idclass);
                     scheduleList.add(schedule);
 
                 }
@@ -120,7 +160,7 @@ public class GetShedule extends AsyncTask<String, String, String>{
             e.printStackTrace();
         }
 
-        ListAdapter adapter = new SimpleAdapter( StudentActivity.this,
+        final ListAdapter adapter = new SimpleAdapter( StudentActivity.this,
                 scheduleList,
                 R.layout.list,
                 new String[]{"LessonName", "TeacherName", "numLesson"},
@@ -128,6 +168,16 @@ public class GetShedule extends AsyncTask<String, String, String>{
 
                 lv.setAdapter(adapter);
 
+                lv.setOnItemClickListener(new OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                HashMap<String,String>  value =  (HashMap<String,String>) parent.getItemAtPosition(position);
+                Intent intent = new Intent(StudentActivity.this, HomeworkActivity.class);
+                intent.putExtra("lesson", value.get("LessonName"));
+                intent.putExtra("lessonId", value.get("idLesson"));
+                startActivity(intent);
+            }
+        });
     }
 }
 
