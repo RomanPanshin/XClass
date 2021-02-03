@@ -1,10 +1,12 @@
 package com.example.serverexample;
 
 
+
 import android.os.AsyncTask;
+import android.os.Environment;
 
 
-
+import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,28 +24,39 @@ import okhttp3.Response;
 
 
 public class UploadFileAsync extends AsyncTask<String, Void, String> {
-    public String response1;
+    public String pathString;
+    final String LOG_TAG = "myLogs";
     @Override
     protected String doInBackground(String... strings) {
         try {
 
-
+            String upLoadServerUriWithFile = "http://borovik.fun:8080/UploadExerciseWithFile";
+            String upLoadServerUriWithoutFile = "http://borovik.fun:8080/UploadExercise";
             Date currentDate = new Date();
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
             String dateText = dateFormat.format(currentDate);
 
 
+           pathString = HomeworkActivity.pathStr;
+
+
+
+            File file = Environment.getExternalStorageDirectory();
+            file = new File( file.getAbsolutePath() + "/" + pathString);
 
                 try {
-                    String upLoadServerUriWithFile = "http://borovik.fun:8080/UploadExerciseWithFile";
-                    String upLoadServerUriWithoutFile = "http://borovik.fun:8080/UploadExercise";
+
+
+                    final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
 
                     if(HomeworkActivity.pathStr != null){
                     RequestBody requestBody=new MultipartBody.Builder().setType(MultipartBody.FORM)
-                            .addFormDataPart("file", HomeworkActivity.pathStr, RequestBody.create(MediaType.parse("image/*"), HomeworkActivity.pathStr))
-                            .addFormDataPart("lessonId",HomeworkActivity.lessonID)
+                            .addFormDataPart("file", file.getName(),  RequestBody.create(MEDIA_TYPE_PNG, file))
+                            //.addFormDataPart("lessonId",HomeworkActivity.lessonID)
+                            .addFormDataPart("lessonId","004f47b3-49a4-4e56-afc6-0f7925230eaf")
                             .addFormDataPart("simpleDate",dateText)
-                            .addFormDataPart("description",HomeworkActivity.description)
+                            //.addFormDataPart("description",HomeworkActivity.description)
+                            .addFormDataPart("description", "photo")
                             .build();
                         Request request=new Request.Builder()
                                 .url(upLoadServerUriWithFile)

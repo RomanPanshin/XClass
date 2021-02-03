@@ -2,18 +2,28 @@ package com.example.serverexample;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.CursorLoader;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.File;
+
+import static com.example.serverexample.MainActivity.context;
+
 public class HomeworkActivity extends AppCompatActivity {
 TextView nameOfHomework, path;
 Button button, selbtn;
-public static String pathStr="", description="", lessonID="";
+    public static Uri pathstr;
+public static String pathStr="", description="", lessonID="", filePath="";
 EditText editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +44,7 @@ EditText editText;
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("*/*");
+                intent.setType("image/*");
                 startActivityForResult(intent, 200);
                 description = editText.getText().toString().trim();
             }
@@ -44,6 +54,7 @@ EditText editText;
             public void onClick(View v) {
 
                 UploadFileAsync uploadFileAsync = new UploadFileAsync();
+
                 uploadFileAsync.execute();
             }
         });
@@ -57,11 +68,28 @@ EditText editText;
             case 200:
                 if(resultCode == RESULT_OK) {
                     String path1 = data.getData().getPath();
-                    path.setText(path1);
-                    pathStr = path1;
 
+                    Uri path2 = data.getData();
+                    path.setText(path1);
+
+                    //filePath=getRealPathFromUri(data.getData());
+
+                    pathstr = path2;
+                    pathStr = path2.getPath();
+                    //File file=new File(filePath);
+                   // File file = new File(path1);
+                    //System.out.println(filePath);
                 }
                 break;
         }
     }
+    public String getRealPathFromUri(Uri uri){
+        String[]  data = { MediaStore.Images.Media.DATA };
+        CursorLoader loader = new CursorLoader(context, uri, data, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
+
 }
