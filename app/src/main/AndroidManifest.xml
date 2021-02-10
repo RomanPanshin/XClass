@@ -17,9 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HomeworkActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".StudentActivity"
+
+        <activity android:name=".StudentActivityHome"
             android:screenOrientation="portrait"/>
 
         <uses-library

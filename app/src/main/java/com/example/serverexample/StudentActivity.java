@@ -1,14 +1,16 @@
 package com.example.serverexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
-import android.util.Log;
+
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -34,7 +36,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class StudentActivity extends AppCompatActivity {
+public class StudentActivity extends Fragment {
     HashMap<String, String> schedule;
     JSONObject structure;
     TextView textView, mon, tue, wed,thu, fri, sat, sun, noLes;
@@ -44,24 +46,28 @@ public class StudentActivity extends AppCompatActivity {
     ImageView imageView;
     private static String jsonurl ;
 
+    public StudentActivity() {
+        // Required empty public constructor
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v =  inflater.inflate(R.layout.activity_student, container, false);
 
-        textView = findViewById(R.id.check);
-        noLes  = findViewById(R.id.textView13);
+        textView = v.findViewById(R.id.check);
+        noLes  = v.findViewById(R.id.textView13);
 
-        mon = findViewById(R.id.textViewMonday);
-        tue = findViewById(R.id.textViewTuesday);
-        wed = findViewById(R.id.textViewWednesday);
-        thu = findViewById(R.id.textViewThursday);
-        fri = findViewById(R.id.textViewFriday);
-        sat = findViewById(R.id.textViewSaturday);
-        sun = findViewById(R.id.textViewSunday);
+        mon = v.findViewById(R.id.textViewMonday);
+        tue = v.findViewById(R.id.textViewTuesday);
+        wed = v.findViewById(R.id.textViewWednesday);
+        thu = v.findViewById(R.id.textViewThursday);
+        fri = v.findViewById(R.id.textViewFriday);
+        sat = v.findViewById(R.id.textViewSaturday);
+        sun = v.findViewById(R.id.textViewSunday);
 
-        imageView = findViewById(R.id.noLessons);
-        lv = findViewById(R.id.listView);
+        imageView = v.findViewById(R.id.noLessons);
+        lv = v.findViewById(R.id.listView);
         textView.setText(Person.name + "\n" + Person.idclass.replace('_', ' '));
 
         scheduleList = new ArrayList<>();
@@ -86,6 +92,7 @@ public class StudentActivity extends AppCompatActivity {
             case ("Saturday"): sat.setBackgroundResource(R.drawable.blueround); break;
             case ("Sunday"): sun.setBackgroundResource(R.drawable.blueround); break;
         }
+       return v;
     }
 
 
@@ -160,7 +167,7 @@ public class GetShedule extends AsyncTask<String, String, String>{
             e.printStackTrace();
         }
 
-        final ListAdapter adapter = new SimpleAdapter( StudentActivity.this,
+        final ListAdapter adapter = new SimpleAdapter( getActivity(),
                 scheduleList,
                 R.layout.list,
                 new String[]{"LessonName", "TeacherName", "numLesson"},
@@ -168,14 +175,20 @@ public class GetShedule extends AsyncTask<String, String, String>{
 
                 lv.setAdapter(adapter);
 
-                lv.setOnItemClickListener(new OnItemClickListener() {
+               lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 HashMap<String,String>  value =  (HashMap<String,String>) parent.getItemAtPosition(position);
-                Intent intent = new Intent(StudentActivity.this, HomeworkActivity.class);
-                intent.putExtra("lesson", value.get("LessonName"));
-                intent.putExtra("lessonId", value.get("idLesson"));
-                startActivity(intent);
+
+
+                    GettingExerciseWithUploadingHW fragment = new GettingExerciseWithUploadingHW();
+                    Bundle args = new Bundle();
+                    args.putString("lessonId", value.get("idLesson"));
+                    fragment.setArguments(args);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.container2, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
             }
         });
     }

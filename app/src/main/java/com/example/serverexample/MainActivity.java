@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(request.equals("true") && claim.equals("student")){
-                    Intent intent = new Intent(MainActivity.this, StudentActivity.class);
+                    Intent intent = new Intent(MainActivity.this, StudentActivityHome.class);
                     startActivity(intent);
                 }
 

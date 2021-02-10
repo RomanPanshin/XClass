@@ -32,79 +32,73 @@ public class UploadFileAsync extends AsyncTask<String, Void, String> {
 
             String upLoadServerUriWithFile = "http://borovik.fun:8080/UploadExerciseWithFile";
             String upLoadServerUriWithoutFile = "http://borovik.fun:8080/UploadExercise";
-            Date currentDate = new Date();
-            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-            String dateText = dateFormat.format(currentDate);
+           // Date currentDate = new Date();
+            //DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+            //String dateText = dateFormat.format(currentDate);
+            pathString = HomeworkActivity.pathStr;
+            File file = file = new File(pathString);
 
+            try {
 
-           pathString = HomeworkActivity.pathStr;
+                MultipartUtility multipart = new MultipartUtility(upLoadServerUriWithFile, "UTF-8");
 
-
-
-            File file = Environment.getExternalStorageDirectory();
-            file = new File( file.getAbsolutePath() + "/" + pathString);
-
-                try {
-
-
-                    final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
-
-                    if(HomeworkActivity.pathStr != null){
+                if(HomeworkActivity.pathStr != null){
+                    MediaType MEDIA_TYPE = MediaType.parse(HomeworkActivity.mimeType);
                     RequestBody requestBody=new MultipartBody.Builder().setType(MultipartBody.FORM)
-                            .addFormDataPart("file", file.getName(),  RequestBody.create(MEDIA_TYPE_PNG, file))
+                            .addFormDataPart("file", file.getName(),  RequestBody.create(MEDIA_TYPE, file))
                             //.addFormDataPart("lessonId",HomeworkActivity.lessonID)
-                            .addFormDataPart("lessonId","004f47b3-49a4-4e56-afc6-0f7925230eaf")
-                            .addFormDataPart("simpleDate",dateText)
-                            //.addFormDataPart("description",HomeworkActivity.description)
-                            .addFormDataPart("description", "photo")
+                            .addFormDataPart("lessonId",HomeworkActivity.id)
+                            .addFormDataPart("simpleDate","21.01.2021")
+                            .addFormDataPart("description",HomeworkActivity.description)
                             .build();
-                        Request request=new Request.Builder()
-                                .url(upLoadServerUriWithFile)
-                                .post(requestBody)
-                                .build();
-                        final OkHttpClient client = new OkHttpClient();
-                        client.newCall(request).enqueue(new Callback() {
-                            @Override
-                            public void onFailure(Call call, IOException e) {
-                                e.printStackTrace();
-                            }
+                    Request request=new Request.Builder()
+                            .url(upLoadServerUriWithFile)
+                            .post(requestBody)
+                            .build();
+                    final OkHttpClient client = new OkHttpClient();
+                    client.newCall(request).enqueue(new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+                            e.printStackTrace();
+                        }
 
-                            @Override
-                            public void onResponse(Call call, Response response) throws IOException {
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
 
-                                System.out.println(response);
-                            }
-                        });
-                    } else{
-                        RequestBody requestBody=new MultipartBody.Builder().setType(MultipartBody.FORM)
-                                .addFormDataPart("lessonId",HomeworkActivity.lessonID)
-                                .addFormDataPart("simpleDate",dateText)
-                                .addFormDataPart("description",HomeworkActivity.description)
-                                .build();
-                        Request request=new Request.Builder()
-                                .url(upLoadServerUriWithoutFile)
-                                .post(requestBody)
-                                .build();
-                        final OkHttpClient client = new OkHttpClient();
-                        client.newCall(request).enqueue(new Callback() {
-                            @Override
-                            public void onFailure(Call call, IOException e) {
-                                e.printStackTrace();
-                            }
+                            System.out.println(response);
+                        }
+                    });
 
-                            @Override
-                            public void onResponse(Call call, Response response) throws IOException {
+                } else{
+                    RequestBody requestBody=new MultipartBody.Builder().setType(MultipartBody.FORM)
+                            .addFormDataPart("lessonId",HomeworkActivity.lessonID)
+                            .addFormDataPart("simpleDate","21.01.2021")
+                            .addFormDataPart("description",HomeworkActivity.description)
+                            .build();
+                    Request request=new Request.Builder()
+                            .url(upLoadServerUriWithoutFile)
+                            .post(requestBody)
+                            .build();
+                    final OkHttpClient client = new OkHttpClient();
+                    client.newCall(request).enqueue(new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+                            e.printStackTrace();
+                        }
 
-                                System.out.println(response);
-                            }
-                        });
-                    }
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
 
-
-
-        } catch (Exception e) {
-                    e.printStackTrace();
+                            System.out.println(response);
+                        }
+                    });
                 }
+
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

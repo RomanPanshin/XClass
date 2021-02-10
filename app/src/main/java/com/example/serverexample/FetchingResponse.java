@@ -99,18 +99,7 @@ public class FetchingResponse extends AsyncTask<String, Void, String> {
 
     }
 
-   /* public String toRussian(String str){
-         byte bytes[];
-        String value;
-        try {
-             bytes = str.getBytes("ISO-8859-1");
-             value = new String(bytes, "UTF-8");
-            return value;
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }*/
+
 }
 
 
