@@ -1,10 +1,13 @@
-package com.example.serverexample;
+package com.example.serverexample.exerciseorhomework;
 
 
 
 import android.os.AsyncTask;
 import android.os.Environment;
 
+
+import com.example.serverexample.HomeworkActivity;
+import com.example.serverexample.MultipartUtility;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,11 +1,10 @@
-package com.example.serverexample;
+package com.example.serverexample.exerciseteacher;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.ListFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.example.serverexample.HomeworkActivity;
+import com.example.serverexample.Person;
+import com.example.serverexample.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,37 +33,50 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class MAterialStudentFragment extends Fragment {
-
-    HashMap<String, String> schedule;
-    ListView listView;
+public class homework_classes_teacher extends Fragment {
+    String dateStr="";
+    HashMap<String, String> schedule1;
+    String id="", name="", teacher="", idclass="", number="", weekday_name="", data = "";
     private static String jsonurl;
-    String data="", name="", idClass="";
-    ArrayList<HashMap<String, String>> scheduleList;
+    JSONObject structure;
+    ArrayList<HashMap<String, String>> scheduleList1;
+    ListView lv1;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            dateStr = getArguments().getString("day_of_the_week");
+        }
+    }
+    public homework_classes_teacher() {
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v =  inflater.inflate(R.layout.fragment_m_aterial_student, container, false);
-
-        listView = v.findViewById(R.id.listviewallclasses);
 
 
-        jsonurl = "http://borovik.fun:8080/additional/lessonsByClass?classId=" + Person.idclass;
+        // Inflate the layout for this fragment
+        View v =  inflater.inflate(R.layout.fragment_homework_teacher, container, false);
 
-        System.out.println(jsonurl);
-        scheduleList = new ArrayList<>();
 
-        GetClasses getClasses = new GetClasses();
-        getClasses.execute();
-        return v;
+        jsonurl = "http://borovik.fun:8080/lessons/getSchedule/teacher?teacherId=" + Person.uId + "&dayOfWeek=" + dateStr;
+        scheduleList1 = new ArrayList<>();
+        lv1 = v.findViewById(R.id.listviewforteacherschedule);
+        lv1.setVisibility(View.VISIBLE);
+        homework_classes_teacher.GetSheduleTeacherClasses getShedule = new  homework_classes_teacher.GetSheduleTeacherClasses();
+        getShedule.execute();
+        return  v;
     }
 
-    public class GetClasses extends AsyncTask<String, String, String> {
+    public class GetSheduleTeacherClasses extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
             String current = "";
+            System.out.println(jsonurl);
             try {
                 URL url;
                 HttpURLConnection httpURLConnection = null;
@@ -104,13 +120,22 @@ public class MAterialStudentFragment extends Fragment {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
 
-
+                        id =jsonObject1.getString("id");
                         name =jsonObject1.getString("name");
-                        idClass = jsonObject1.getString("id");
-                        schedule = new HashMap<>();
-                        schedule.put("LessonName", name);
+                        //teacher =jsonObject1.getString("teacher");
+                        idclass =jsonObject1.getString("idclass");
+                        structure = (JSONObject) jsonObject1.get("date");
 
-                        scheduleList.add(schedule);
+                        number = structure.getString("numLesson");
+
+
+
+                        schedule1 = new HashMap<>();
+                        schedule1.put("LessonName", name);
+                        schedule1.put("id", id);
+                        schedule1.put("numLesson", number);
+                        schedule1.put("idLesson", idclass);
+                        scheduleList1.add(schedule1);
 
                     }
 
@@ -120,30 +145,28 @@ public class MAterialStudentFragment extends Fragment {
             }
 
             final ListAdapter adapter = new SimpleAdapter( getActivity(),
-                    scheduleList,
-                    R.layout.listclass,
-                    new String[]{"LessonName"},
-                    new int[] {R.id.listViewLesson});
+                    scheduleList1,
+                    R.layout.list2,
+                    new String[]{"LessonName", "numLesson", "idLesson"},
+                    new int[] {R.id.listView10, R.id.listView11, R.id.textView12});
 
-            listView.setAdapter(adapter);
+            lv1.setAdapter(adapter);
 
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
                     HashMap<String,String>  value =  (HashMap<String,String>) parent.getItemAtPosition(position);
 
-
-                    materialforLessomStudent fragment = new materialforLessomStudent();
+                    HomeworkActivity fragment = new HomeworkActivity();
                     Bundle args = new Bundle();
-                    args.putString("ALessonId",idClass);
+                    args.putString("id", value.get("id"));
                     fragment.setArguments(args);
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.container2, fragment);
+                    transaction.replace(R.id.container1, fragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
-                }
-            });
         }
-    }
+    });
 
-}
+
+}}}

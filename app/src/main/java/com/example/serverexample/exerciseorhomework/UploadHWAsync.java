@@ -1,6 +1,10 @@
-package com.example.serverexample;
+package com.example.serverexample.exerciseorhomework;
 
 import android.os.AsyncTask;
+
+import com.example.serverexample.GettingExerciseWithUploadingHW;
+import com.example.serverexample.MultipartUtility;
+import com.example.serverexample.Person;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +39,7 @@ protected String doInBackground(String... strings) {
         MediaType MEDIA_TYPE = MediaType.parse(GettingExerciseWithUploadingHW.mimeType);
         RequestBody requestBody=new MultipartBody.Builder().setType(MultipartBody.FORM)
         .addFormDataPart("file", file.getName(),  RequestBody.create(MEDIA_TYPE, file))
-        .addFormDataPart("UID",Person.uId)
+        .addFormDataPart("UID", Person.uId)
          .addFormDataPart("description",GettingExerciseWithUploadingHW.description)
         .addFormDataPart("exerciseId",GettingExerciseWithUploadingHW.idLESSON)
 

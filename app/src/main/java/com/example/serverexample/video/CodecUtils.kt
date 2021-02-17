@@ -1,6 +1,6 @@
 
 @file:JvmName("CodecUtils")
-package com.example.serverexample
+package com.example.serverexample.video
 import tvi.webrtc.HardwareVideoDecoderFactory
 import tvi.webrtc.HardwareVideoEncoderFactory
 

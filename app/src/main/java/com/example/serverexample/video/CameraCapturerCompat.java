@@ -1,4 +1,4 @@
-package com.example.serverexample;
+package com.example.serverexample.video;
 
 import android.content.Context;
 import android.graphics.ImageFormat;

@@ -1,4 +1,4 @@
-package com.example.serverexample;
+package com.example.serverexample.exerciseorhomework;
 
 import android.app.DownloadManager;
 import android.content.Context;

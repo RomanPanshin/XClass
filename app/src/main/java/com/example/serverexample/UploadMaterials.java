@@ -22,6 +22,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.serverexample.materials.UploadMaterial;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -1,10 +1,12 @@
-package com.example.serverexample;
+package com.example.serverexample.video;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
+
+import com.example.serverexample.R;
 
 public class Dialog {
 

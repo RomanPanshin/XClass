@@ -1,11 +1,9 @@
 package com.example.serverexample;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.loader.content.CursorLoader;
 
-import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +21,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.serverexample.exerciseorhomework.UploadFileAsync;
 
 import java.io.File;
 import java.io.FileOutputStream;

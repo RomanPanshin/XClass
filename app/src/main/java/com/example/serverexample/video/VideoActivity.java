@@ -1,4 +1,4 @@
-package com.example.serverexample;
+package com.example.serverexample.video;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.serverexample.BuildConfig;
+import com.example.serverexample.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.twilio.audioswitch.AudioDevice;
@@ -72,7 +74,7 @@ public class VideoActivity extends AppCompatActivity {
     private static final String LOCAL_VIDEO_TRACK_NAME = "camera";
 
 
-    private static final String TWILIO_ACCESS_TOKEN = CustomDialogFragment.token;
+    private static final String TWILIO_ACCESS_TOKEN =  BuildConfig.TWILIO_ACCESS_TOKEN;
 
 
 
@@ -1076,8 +1078,8 @@ public class VideoActivity extends AppCompatActivity {
 
     private void retrieveAccessTokenfromServer() {
 
-        /// TODO: получение токена с сервера
-        // VideoActivity.this.accessToken = token;
+
+        VideoActivity.this.accessToken = CustomDialogFragment.token;;
 
     }
 }

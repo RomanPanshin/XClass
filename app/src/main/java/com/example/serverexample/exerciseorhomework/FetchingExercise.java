@@ -1,6 +1,9 @@
-package com.example.serverexample;
+package com.example.serverexample.exerciseorhomework;
 
 import android.os.AsyncTask;
+
+import com.example.serverexample.MainActivity;
+import com.example.serverexample.Person;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;

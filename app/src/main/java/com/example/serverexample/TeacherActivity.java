@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.serverexample.exerciseorhomework.homeworkTeacherFragment;
+import com.example.serverexample.materials.MaterialTeacherFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class TeacherActivity extends AppCompatActivity {

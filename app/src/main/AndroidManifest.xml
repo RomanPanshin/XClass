@@ -45,19 +45,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".VideoActivity"
+        <activity android:name=".video.VideoActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".TeacherActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".video.SettingsActivity"
             android:theme="@style/AppTheme.Settings"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".SettingsActivity">
+            android:parentActivityName=".video.SettingsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.serverexample.VideoActivity" />
+                android:value="com.example.serverexample.video.VideoActivity" />
         </activity>
         <meta-data
             android:name="preloaded_fonts"
