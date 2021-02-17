@@ -1,4 +1,4 @@
-package com.example.serverexample.exerciseteacher;
+package com.example.serverexample.exerciseorhomework;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +14,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.example.serverexample.ChekingHW;
 import com.example.serverexample.R;
 
 import org.json.JSONArray;

@@ -1,4 +1,4 @@
-package com.example.serverexample;
+package com.example.serverexample.materials;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.example.serverexample.R;
+import com.example.serverexample.UploadMaterials;
 
 import org.json.JSONArray;
 import org.json.JSONException;

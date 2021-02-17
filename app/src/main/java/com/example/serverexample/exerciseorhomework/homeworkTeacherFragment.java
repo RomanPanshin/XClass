@@ -1,4 +1,4 @@
-package com.example.serverexample.exerciseteacher;
+package com.example.serverexample.exerciseorhomework;
 
 import android.os.Bundle;
 
@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.serverexample.R;
-import com.example.serverexample.exerciseteacher.homework_classes_teacher;
-import com.example.serverexample.exerciseteacher.homework_teacher_check;
 
 import org.naishadhparmar.zcustomcalendar.CustomCalendar;
 import org.naishadhparmar.zcustomcalendar.OnDateSelectedListener;

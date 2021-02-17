@@ -1,4 +1,4 @@
-package com.example.serverexample.exerciseteacher;
+package com.example.serverexample.exerciseorhomework;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
