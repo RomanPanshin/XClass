@@ -996,6 +996,7 @@ public class VideoActivity extends AppCompatActivity {
              * Connect to room
              */
             connectToRoom(roomEditText.getText().toString());
+           // System.out.println(roomEditText.getText().toString());
         };
     }
 
