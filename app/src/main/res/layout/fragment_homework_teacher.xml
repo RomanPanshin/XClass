@@ -30,12 +30,25 @@
         android:shadowDy="4"
         />
 
+    <View
+android:id="@+id/biew"
+        android:layout_width="330dp"
+        android:layout_height="317dp"
+
+        android:background="@drawable/calendarrect2"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.458" />
+
 
     <org.naishadhparmar.zcustomcalendar.CustomCalendar
         android:id="@+id/custom_calendar"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:clickable="true"
         app:day_of_week_start_from="monday"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +62,6 @@
         android:id="@+id/custom_calendar2"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:clickable="true"
         app:day_of_week_start_from="monday"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,21 +141,9 @@ android:visibility="invisible"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!-- <androidx.appcompat.widget.SwitchCompat
-         android:id="@+id/chkState"
-         android:layout_width="158dp"
-         android:layout_height="45dp"
-         app:track="@drawable/custom_track"
-         android:thumb="@drawable/custom_thumb"
-         android:textOff="Задать"
-         android:textColor="#3F3D56"
-         android:textOn="Просмотреть"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.498"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="@+id/view6"
-         app:layout_constraintVertical_bias="0.104" />-->
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

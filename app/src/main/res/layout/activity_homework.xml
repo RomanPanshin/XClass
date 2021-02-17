@@ -68,6 +68,27 @@
         app:layout_constraintVertical_bias="0.726" />
 
     <Button
+        android:id="@+id/createTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/whitebutton"
+        android:fontFamily="@font/montserrat_bold"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="Создать тест"
+        android:textAllCaps="false"
+        android:textColor="#3F3D56"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <Button
         android:id="@+id/selectFile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -11,7 +11,7 @@
         android:fontFamily="@font/montserrat_bold"/>
     <item
         android:id="@+id/journalBTN"
-        android:title="Журнал"
+        android:title="Расписание"
         android:icon="@drawable/people"
         android:textColor="#3F3D56"
         android:textSize="18sp"
@@ -19,7 +19,7 @@
         android:fontFamily="@font/montserrat_bold"/>
     <item
         android:id="@+id/scheduleBTN"
-        android:title="Расписание"
+        android:title="Материалы"
         android:icon="@drawable/schedulelist"
         android:textColor="#3F3D56"
         android:textSize="18sp"

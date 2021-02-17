@@ -68,6 +68,7 @@
         android:layout_height="46dp"
         android:background="@drawable/whitebutton"
         android:text="Скачать файл"
+
         android:textAllCaps="false"
         android:textColor="#7F7C8B"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,22 +82,22 @@
         android:id="@+id/textViewHomeTask"
         android:layout_width="290dp"
         android:layout_height="57dp"
-        android:text="Без домашнего задания"
+        android:text="Описание не добавлено"
         android:textAllCaps="false"
         android:textColor="#7F7C8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintVertical_bias="0.31" />
 
     <EditText
         android:id="@+id/editTexthWTask"
         android:layout_width="336dp"
         android:layout_height="102dp"
         android:background="@drawable/buttonback"
-
+android:textColor="#312D45"
         android:hint="Введите ответ"
         android:textAlignment="center"
         android:textColorHint="#7F7C8B"
@@ -129,7 +130,7 @@
         android:layout_width="86dp"
         android:layout_height="58dp"
         android:background="@drawable/whitebutton"
-        android:text="Отправить"
+        android:text="Загрузить"
         android:textAllCaps="false"
         android:textColor="#7F7C8B"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,4 +139,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view6"
         app:layout_constraintVertical_bias="0.735" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="383dp"
+        android:layout_height="31dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <TextView
+        android:id="@+id/theme"
+        android:layout_width="383dp"
+        android:layout_height="31dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094" />
 </androidx.constraintlayout.widget.ConstraintLayout>

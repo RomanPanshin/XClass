@@ -1,6 +1,5 @@
 package com.example.serverexample;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -35,7 +34,7 @@ public class TeacherActivity extends AppCompatActivity {
                         break;
 
                     case R.id.scheduleBTN:
-                        fragment = new ScheduleTeacherFragment();
+                        fragment = new MaterialTeacherFragment();
                         break;
 
                 }

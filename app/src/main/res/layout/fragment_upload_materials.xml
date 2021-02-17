@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MAterialStudentFragment">
+
+    <View
+
+        android:id="@+id/view8"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:background="@drawable/topauth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="348dp"
+        android:layout_height="84dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:lineSpacingExtra="-10dp"
+        android:text="Дополнительные материалы"
+        android:textAlignment="center"
+        android:textColor="#FFFF"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <View
+
+        android:id="@+id/view10"
+        android:layout_width="351dp"
+        android:layout_height="498dp"
+        android:background="@drawable/authcenter"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/descriptionMaterial"
+        android:layout_width="341dp"
+        android:layout_height="135dp"
+        android:background="@drawable/buttonback"
+        android:ems="10"
+        android:hint="Добавьте описание"
+        android:inputType="textPersonName"
+
+        android:textAlignment="center"
+        android:textColor="#312D45"
+        android:textColorHint="#7F7C8B"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.308" />
+
+    <Button
+
+        android:id="@+id/fileMaterial"
+        android:layout_width="136dp"
+        android:layout_height="121dp"
+        android:background="@drawable/nn"
+
+        android:hint="Выбрать файл"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.552" />
+
+    <Button
+        android:id="@+id/buttonUploadMaterial"
+        android:layout_width="306dp"
+        android:layout_height="59dp"
+        android:background="@drawable/buttonwithshadow"
+        android:text="Добавить"
+        android:textAllCaps="false"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view8"
+        app:layout_constraintVertical_bias="0.729" />
+</androidx.constraintlayout.widget.ConstraintLayout>

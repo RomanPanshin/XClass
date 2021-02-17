@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -39,13 +40,13 @@ import java.util.Locale;
 public class StudentActivity extends Fragment {
     HashMap<String, String> schedule;
     JSONObject structure;
-    TextView textView, mon, tue, wed,thu, fri, sat, sun, noLes;
+    TextView textView, mon, tue, wed,thu, fri, sat, sun, noLes, textMonth;
     ListView lv;
     String id="", name="", teacher="", idclass="", number="", weekday_name="", data = "";
     ArrayList<HashMap<String, String>> scheduleList;
     ImageView imageView;
     private static String jsonurl ;
-
+    Button left, right;
     public StudentActivity() {
         // Required empty public constructor
     }
@@ -58,6 +59,8 @@ public class StudentActivity extends Fragment {
         textView = v.findViewById(R.id.check);
         noLes  = v.findViewById(R.id.textView13);
 
+        textMonth = v.findViewById(R.id.textViewMonth);
+
         mon = v.findViewById(R.id.textViewMonday);
         tue = v.findViewById(R.id.textViewTuesday);
         wed = v.findViewById(R.id.textViewWednesday);
@@ -66,13 +69,24 @@ public class StudentActivity extends Fragment {
         sat = v.findViewById(R.id.textViewSaturday);
         sun = v.findViewById(R.id.textViewSunday);
 
+        right = v.findViewById(R.id.buttonRight);
+        left = v.findViewById(R.id.but_left);
+
         imageView = v.findViewById(R.id.noLessons);
         lv = v.findViewById(R.id.listView);
-        textView.setText(Person.name + "\n" + Person.idclass.replace('_', ' '));
+        textView.setText(Person.name + "\n" + Person.idclass);
+
+        Calendar calendar = Calendar.getInstance();
+        String month = calendar.getDisplayName(Calendar.MONTH,
+                Calendar.LONG_FORMAT, new Locale("ru"));
+
+        textMonth.setText(month);
 
         scheduleList = new ArrayList<>();
         weekday_name = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());
         jsonurl = "http://borovik.fun:8080/lessons/getSchedule?classId=" + Person.idclass + "&dayOfWeek=" + weekday_name;
+
+        System.out.println(jsonurl);
 
        if(!weekday_name.equals("Saturday") && !weekday_name.equals("Sunday")){
         GetShedule getShedule = new GetShedule();
@@ -156,8 +170,28 @@ public class GetShedule extends AsyncTask<String, String, String>{
                     schedule = new HashMap<>();
                     schedule.put("LessonName", name);
                     schedule.put("TeacherName", teacher);
+
+                    switch (number){
+                        case "1": number+=" урок  08:15 - 09:00";
+                        break;
+                        case "2": number+=" урок  09:10 - 09:55";
+                        break;
+                        case "3": number+=" урок  10:20 - 11:05";
+                        break;
+                        case "4": number+=" урок  11:10 - 11:55";
+                            break;
+                        case "5": number+=" урок  12:05 - 12:50";
+                            break;
+                        case "6": number+=" урок  13:00 - 13:45";
+                            break;
+                        case "7": number+=" урок  14:05 - 14:50";
+                            break;
+                        case "8": number+=" урок  15:00 - 15:45";
+                            break;
+                    }
+
                     schedule.put("numLesson", number);
-                    schedule.put("idLesson", idclass);
+                    schedule.put("idLesson", id);
                     scheduleList.add(schedule);
 
                 }
@@ -166,7 +200,7 @@ public class GetShedule extends AsyncTask<String, String, String>{
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        if (getActivity()!=null){
         final ListAdapter adapter = new SimpleAdapter( getActivity(),
                 scheduleList,
                 R.layout.list,
@@ -184,6 +218,8 @@ public class GetShedule extends AsyncTask<String, String, String>{
                     GettingExerciseWithUploadingHW fragment = new GettingExerciseWithUploadingHW();
                     Bundle args = new Bundle();
                     args.putString("lessonId", value.get("idLesson"));
+                    args.putString("LessonName", value.get("LessonName"));
+
                     fragment.setArguments(args);
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.container2, fragment);
@@ -192,6 +228,6 @@ public class GetShedule extends AsyncTask<String, String, String>{
             }
         });
     }
-}
+}}
 
 }

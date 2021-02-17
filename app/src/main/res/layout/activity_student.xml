@@ -21,10 +21,9 @@
 
     <TextView
         android:id="@+id/check"
-        android:layout_width="243dp"
-        android:layout_height="100dp"
+        android:layout_width="375dp"
+        android:layout_height="64dp"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="TextView"
         android:textColor="#FFFFFF"
@@ -35,41 +34,23 @@
         app:layout_constraintTop_toTopOf="@+id/view2"
         app:layout_constraintVertical_bias="0.233" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059"
-        app:srcCompat="@drawable/photo" />
-
-
-
-
 
     <ImageView
         android:id="@+id/noLessons"
-        android:layout_width="214dp"
-        android:layout_height="359dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_width="222dp"
+        android:layout_height="381dp"
+        android:layout_marginTop="300dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/textViewFriday"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewThursday"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/nolessons" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="400dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Нет уроков"
         android:textColor="#3F3D56"
@@ -78,12 +59,12 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/noLessons"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFriday" />
+        app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="539dp"
+        android:layout_width="416dp"
+        android:layout_height="505dp"
 
         android:divider="#00000000"
         android:dividerHeight="10dp"
@@ -92,7 +73,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.771">
+        app:layout_constraintVertical_bias="0.778">
 
     </ListView>
 
@@ -101,76 +82,77 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="4dp"
         android:background="@drawable/whiteround"
         android:fontFamily="@font/montserrat_bold"
-        android:textStyle="bold"
         android:paddingLeft="14dp"
         android:paddingTop="10dp"
         android:text="ПН"
         android:textColor="#3F3D56"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewTuesday"
         app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192" />
 
     <TextView
         android:id="@+id/textViewTuesday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/whiteround"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="14dp"
         android:paddingTop="10dp"
         android:text="ВТ"
-        android:textStyle="bold"
         android:textColor="#3F3D56"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewWednesday"
         app:layout_constraintStart_toEndOf="@+id/textViewMonday"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
 
     <TextView
         android:id="@+id/textViewWednesday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:background="@drawable/whiteround"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="14dp"
         android:paddingTop="10dp"
         android:text="СР"
-        android:textStyle="bold"
         android:textColor="#3F3D56"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewThursday"
         app:layout_constraintStart_toEndOf="@+id/textViewMonday"
-         />
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.192" />
 
     <TextView
         android:id="@+id/textViewThursday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:background="@drawable/whiteround"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="14dp"
         android:paddingTop="10dp"
         android:text="ЧТ"
-        android:textStyle="bold"
         android:textColor="#3F3D56"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewFriday"
         app:layout_constraintStart_toEndOf="@+id/textViewWednesday"
-        />
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.192" />
 
     <TextView
         android:id="@+id/textViewFriday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/whiteround"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="14dp"
@@ -178,17 +160,18 @@
         android:text="ПТ"
         android:textColor="#3F3D56"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewSaturday"
+
         app:layout_constraintStart_toEndOf="@+id/textViewThursday"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
 
     <TextView
         android:id="@+id/textViewSaturday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/whiteround"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="14dp"
@@ -196,17 +179,19 @@
         android:text="СБ"
         android:textColor="#3F3D56"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewSunday"
-        app:layout_constraintStart_toEndOf="@+id/textViewFriday"
 
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/textViewFriday"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
 
     <TextView
         android:id="@+id/textViewSunday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/whiteround"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="14dp"
@@ -214,9 +199,52 @@
         android:text="ВС"
         android:textColor="#3F3D56"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
-        app:layout_constraintStart_toEndOf="@+id/textViewSaturday"
 
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewSaturday"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
+
+    <Button
+        android:id="@+id/buttonRight"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/right1"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.199" />
+
+    <Button
+        android:id="@+id/buttonLeft"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+
+        android:background="@drawable/left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.199" />
+
+    <TextView
+        android:id="@+id/textViewMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.16" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".journalTeacherFragment">
+    tools:context=".StudentActivity">
 
-    <!-- TODO: Update blank fragment layout -->
+    <View
+
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/topauth"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_journal_fragment" />
+        android:id="@+id/check"
+        android:layout_width="375dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.233" />
 
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/noLessons"
+        android:layout_width="222dp"
+        android:layout_height="381dp"
+        android:layout_marginTop="300dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/textViewFriday"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nolessons" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Нет уроков"
+        android:textColor="#3F3D56"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/noLessons"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <ListView
+        android:id="@+id/listView2"
+        android:layout_width="416dp"
+        android:layout_height="505dp"
+
+        android:divider="#00000000"
+        android:dividerHeight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.778">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textViewMonday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:background="@drawable/whiteround"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:text="ПН"
+        android:textColor="#3F3D56"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTuesday"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/textViewTuesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/whiteround"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:text="ВТ"
+        android:textColor="#3F3D56"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewWednesday"
+        app:layout_constraintStart_toEndOf="@+id/textViewMonday"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
+
+    <TextView
+        android:id="@+id/textViewWednesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/whiteround"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:text="СР"
+        android:textColor="#3F3D56"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewThursday"
+        app:layout_constraintStart_toEndOf="@+id/textViewMonday"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/textViewThursday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/whiteround"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:text="ЧТ"
+        android:textColor="#3F3D56"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewFriday"
+        app:layout_constraintStart_toEndOf="@+id/textViewWednesday"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/textViewFriday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/whiteround"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:text="ПТ"
+        android:textColor="#3F3D56"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewSaturday"
+
+        app:layout_constraintStart_toEndOf="@+id/textViewThursday"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
+
+    <TextView
+        android:id="@+id/textViewSaturday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/whiteround"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:text="СБ"
+        android:textColor="#3F3D56"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewSunday"
+
+        app:layout_constraintStart_toEndOf="@+id/textViewFriday"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
+
+    <TextView
+        android:id="@+id/textViewSunday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/whiteround"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:text="ВС"
+        android:textColor="#3F3D56"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewSaturday"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

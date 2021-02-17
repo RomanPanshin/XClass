@@ -64,6 +64,7 @@ TextView present, past;
         present = v.findViewById(R.id.present);
         past = v.findViewById(R.id.past);
         jsonurl = "http://borovik.fun:8080/lessons/getSchedule/teacher?teacherId=" + Person.uId + "&dayOfWeek=" + day_week;
+        System.out.println(jsonurl);
         scheduleList1 = new ArrayList<>();
         lv1 = v.findViewById(R.id.listviewforteacherschedule);
         lv1.setVisibility(View.VISIBLE);
@@ -148,8 +149,8 @@ TextView present, past;
             final ListAdapter adapter = new SimpleAdapter( getActivity(),
                     scheduleList1,
                     R.layout.list2,
-                    new String[]{"LessonName", "numLesson", "idLesson"},
-                    new int[] {R.id.listView10, R.id.listView11, R.id.textView12});
+                    new String[]{"LessonName", "numLesson", "idLesson", "id"},
+                    new int[] {R.id.listView10, R.id.listView11, R.id.textView12, R.id.txtid});
 
             lv1.setAdapter(adapter);
 
@@ -160,7 +161,7 @@ TextView present, past;
 
                     hw_teacher_ fragment = new hw_teacher_();
                     Bundle args = new Bundle();
-                    args.putString("idLesson", value.get("idLesson"));
+                    args.putString("idLesson", value.get("id"));
                     args.putString("date", dateStr);
                     fragment.setArguments(args);
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();

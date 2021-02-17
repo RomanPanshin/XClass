@@ -31,7 +31,7 @@ public class StudentActivityHome extends AppCompatActivity {
                         break;
 
                     case R.id.materialBTNSTD:
-                        fragment = new StudentActivity();
+                        fragment = new MAterialStudentFragment();
                         break;
 
                     case R.id.homeworkBTNSTD:

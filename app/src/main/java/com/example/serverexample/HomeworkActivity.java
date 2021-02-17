@@ -36,7 +36,7 @@ import static com.example.serverexample.MainActivity.context;
 public class HomeworkActivity extends Fragment {
     Context mc;
     TextView nameOfHomework, path;
-    Button button, selbtn;
+    Button button, selbtn, test;
     public static Uri pathstr;
     public static String pathStr="", description="", lessonID="", id="", mimeType = "";
     EditText editText;
@@ -52,12 +52,15 @@ public class HomeworkActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.activity_homework, container, false);
-mc= v.getContext();
+        mc= v.getContext();
 
-       // Bundle arguments = getIntent().getExtras();
-       // String name = arguments.get("lesson").toString();
-       // String lessonID = arguments.get("lessonId").toString();
-        //nameOfHomework.setText(name);
+        test = v.findViewById(R.id.createTest);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
         editText = v.findViewById(R.id.editTextHw);
         path = v.findViewById(R.id.path);
         button = v.findViewById(R.id.addFile);

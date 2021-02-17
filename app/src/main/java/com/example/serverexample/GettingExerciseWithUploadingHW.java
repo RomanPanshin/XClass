@@ -51,22 +51,24 @@ import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
 import static com.example.serverexample.MainActivity.context;
+import static com.example.serverexample.R.drawable.bluerect;
 
 public class GettingExerciseWithUploadingHW extends Fragment {
     Context mc;
-    TextView homeTask, path;
+    TextView homeTask, path, theme, lesson;
     Button buttonUP, selbtn, download;
     public static Uri pathstr;
-    public static String pathStr="", description="", lessonID="", idLESSON="", mimeType = "", jsonurl="";
+    public static String pathStr="", description="", idLESSON="", mimeType = "", jsonurl="",jsonurl2="", LessonName="", topic="";
     EditText editText;
-    String data;
+    String data, fileurl, data2;
+    //TextView nameOfLesson;
 
-    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             idLESSON = getArguments().getString("lessonId");
+            LessonName = getArguments().getString("LessonName");
         }
     }
     @Override
@@ -79,9 +81,17 @@ public class GettingExerciseWithUploadingHW extends Fragment {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         String dateText = dateFormat.format(currentDate);
 
+
         jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateText + "&lessonId=" + idLESSON;
+        jsonurl2 = "http://borovik.fun:8080/lessons/topic/get?lessonId=" + idLESSON + "&simpleDate=" + dateText;
+
+        System.out.println(jsonurl2);
         homeTask = v.findViewById(R.id.textViewHomeTask);
         download = v.findViewById(R.id.down);
+
+        lesson = v.findViewById(R.id.textView6);
+        lesson.setText(LessonName);
+        theme = v.findViewById(R.id.theme);
 
         editText = v.findViewById(R.id.editTexthWTask);
         path = v.findViewById(R.id.path);
@@ -96,15 +106,20 @@ public class GettingExerciseWithUploadingHW extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(intent, 200);
+                selbtn.setBackgroundResource(bluerect);
+                selbtn.setText("");
             }
         });
         buttonUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 description = editText.getText().toString().trim();
-                UploadFileAsync uploadFileAsync = new UploadFileAsync();
 
-                uploadFileAsync.execute();
+System.out.println(idLESSON + " " +  description);
+
+                UploadHWAsync uploadHWAsync = new UploadHWAsync();
+
+                uploadHWAsync.execute();
             }
         });
         /*downBTN.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +130,14 @@ public class GettingExerciseWithUploadingHW extends Fragment {
                 downloadFileAsync.execute();
             }
         });*/
+
+
+        GettingExerciseWithUploadingHW.GetExercise getExercise = new GettingExerciseWithUploadingHW.GetExercise();
+        getExercise.execute();
+        GettingExerciseWithUploadingHW.GetTheme getTopic = new GettingExerciseWithUploadingHW.GetTheme();
+        getTopic.execute();
+
+
         return  v;
     }
     @Override
@@ -307,6 +330,7 @@ public class GettingExerciseWithUploadingHW extends Fragment {
                         current = bufferedReader.readLine();
                         data = data + current;
                     }
+                    data=data.substring(4);
                     return data;
 
                 } catch (MalformedURLException e) {
@@ -327,26 +351,99 @@ public class GettingExerciseWithUploadingHW extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             try {
-                JSONObject jsonObject = new JSONObject(s);
-                if(jsonObject.optString("code").contentEquals("Success")){
 
-                    JSONArray jsonArray = jsonObject.getJSONArray("result");
-                    for(int i = 0; i<jsonArray.length(); i++){
-                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                    JSONObject jsonObject = new JSONObject(s);
+                    if (jsonObject.optString("code").contentEquals("Success")) {
+
+                        JSONArray jsonArray = jsonObject.getJSONArray("result");
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
 
-                        description =jsonObject1.getString("description");
-                        homeTask.setText(description);
+                            description = jsonObject1.getString("description");
+                            homeTask.setText(description);
+
+                            if (jsonObject1.getString("fileURL").equals("null")) {
+                                download.setVisibility(View.INVISIBLE);
+                            } else {
+                                fileurl = jsonObject1.getString("fileURL");
+                            }
+
+
+                        }
+                    }
+                    if (jsonObject.optString("code").contentEquals("Error")) {
+
+                        download.setVisibility(View.INVISIBLE);
+                        homeTask.setText("Не задано");
 
                     }
-
+                } catch(JSONException e){
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
 
 
         }
     }
+    public class GetTheme extends AsyncTask<String, String, String> {
 
+        @Override
+        protected String doInBackground(String... strings) {
+            String current = "";
+            try {
+                URL url;
+                HttpURLConnection httpURLConnection = null;
+                try {
+                    url = new URL(jsonurl2);
+                    httpURLConnection = (HttpURLConnection) url.openConnection();
+
+
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+                    while(current != null){
+                        current = bufferedReader.readLine();
+                        data2 = data2 + current;
+                    }
+                    data2=data2.substring(4);
+                    return data2;
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                finally {
+                    if(httpURLConnection !=null )
+                        httpURLConnection.disconnect();
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            return current;
+        }
+        @Override
+        protected void onPostExecute(String s) {
+           try {
+
+                JSONObject jsonObject = new JSONObject(s);
+                if (jsonObject.optString("code").contentEquals("Success")) {
+
+                    JSONObject jsonObject2 = new JSONObject(jsonObject.optString("result"));
+
+                        topic = jsonObject2.getString("topic");
+                        theme.setText(topic);
+
+                }
+
+            } catch(JSONException e){
+               theme.setText("Тема не назначена");
+                e.printStackTrace();
+            }
+
+
+
+        }
+    }
 }

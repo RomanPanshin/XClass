@@ -8,6 +8,7 @@
 
     <View
 
+        android:id="@+id/view8"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:background="@drawable/topauth"
@@ -18,35 +19,48 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <View
-
-        android:layout_width="351dp"
-        android:layout_height="498dp"
-        android:layout_marginTop="140dp"
-        android:background="@drawable/authcenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:shadowColor="#8693DDF5"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="344dp"
-        android:layout_height="81dp"
+        android:layout_width="348dp"
+        android:layout_height="84dp"
         android:fontFamily="@font/poppins_semibold"
         android:lineSpacingExtra="-10dp"
         android:text="Дополнительные материалы"
         android:textAlignment="center"
-        android:textColor="#3F3D56"
-        android:textSize="25dp"
+        android:textColor="#FFFF"
+        android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintVertical_bias="0.123" />
+
+    <View
+
+        android:layout_width="351dp"
+        android:layout_height="498dp"
+        android:background="@drawable/authcenter"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listviewallclasses"
+        android:layout_width="337dp"
+        android:layout_height="416dp"
+        android:divider="#00000000"
+        android:dividerHeight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.476">
+
+    </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>
