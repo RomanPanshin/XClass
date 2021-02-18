@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.serverexample.BuildConfig;
 import com.example.serverexample.R;
+import com.example.serverexample.journalTeacherFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.twilio.audioswitch.AudioDevice;
@@ -118,7 +120,8 @@ public class VideoActivity extends AppCompatActivity {
     private VideoSink localVideoView;
     private boolean disconnectedFromOnDestroy;
     private boolean enableAutomaticSubscription;
-
+public String roomeditText = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
+    public TextView roomText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -367,15 +370,15 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void setAccessToken() {
-        if (!BuildConfig.USE_TOKEN_SERVER) {
+      // if (!BuildConfig.USE_TOKEN_SERVER) {
             /*
              * OPTION 1 - Generate an access token from the getting started portal
              * https://www.twilio.com/console/video/dev-tools/testing-tools and add
              * the variable TWILIO_ACCESS_TOKEN setting it equal to the access token
              * string in your local.properties file.
              */
-            this.accessToken = TWILIO_ACCESS_TOKEN;
-        } else {
+           // this.accessToken = TWILIO_ACCESS_TOKEN;
+       // } else {
             /*
              * OPTION 2 - Retrieve an access token from your own web app.
              * Add the variable ACCESS_TOKEN_SERVER assigning it to the url of your
@@ -383,7 +386,7 @@ public class VideoActivity extends AppCompatActivity {
              * local.properties file.
              */
             retrieveAccessTokenfromServer();
-        }
+
     }
 
     private void connectToRoom(String roomName) {
@@ -565,12 +568,24 @@ public class VideoActivity extends AppCompatActivity {
      * Creates an connect UI dialog
      */
     private void showConnectDialog() {
+
+       // roomeditText="38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
+      /*  roomText.setText(roomeditText);
+        //EditText roomEditText = new EditText(this);
+
+        connectDialog = Dialog.createConnectDialog(roomText,
+                connectClickListener(roomText),
+                cancelConnectDialogClickListener(),
+                this);
+        connectDialog.show();*/
         EditText roomEditText = new EditText(this);
+       // roomEditText.setText(CustomFragmentStudent.lessonID);
         connectDialog = Dialog.createConnectDialog(roomEditText,
                 connectClickListener(roomEditText),
                 cancelConnectDialogClickListener(),
                 this);
         connectDialog.show();
+
     }
 
     /*
@@ -995,7 +1010,7 @@ public class VideoActivity extends AppCompatActivity {
             /*
              * Connect to room
              */
-            connectToRoom(roomEditText.getText().toString());
+            connectToRoom(CustomFragmentStudent.lessonID);
            // System.out.println(roomEditText.getText().toString());
         };
     }
@@ -1009,6 +1024,9 @@ public class VideoActivity extends AppCompatActivity {
                 room.disconnect();
             }
             intializeUI();
+
+           Intent intent = new Intent(VideoActivity.this, Attendance.class);
+           startActivity(intent);
         };
     }
 
@@ -1080,7 +1098,8 @@ public class VideoActivity extends AppCompatActivity {
     private void retrieveAccessTokenfromServer() {
 
 
-        VideoActivity.this.accessToken = CustomDialogFragment.token;;
+        this.accessToken = CustomDialogFragment.token;
+        System.out.println(accessToken);
 
     }
 }

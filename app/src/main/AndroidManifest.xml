@@ -7,11 +7,11 @@
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -19,24 +19,29 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:screenOrientation="portrait"
-        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".StudentActivityHome"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".video.Attendance"
+            android:label="@string/title_activity_attendance"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".StudentActivityHome"
+            android:screenOrientation="portrait" />
 
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,21 +49,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".video.VideoActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".TeacherActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".video.VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TeacherActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".video.SettingsActivity"
-            android:theme="@style/AppTheme.Settings"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".video.SettingsActivity">
+            android:parentActivityName=".video.SettingsActivity"
+            android:theme="@style/AppTheme.Settings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.serverexample.video.VideoActivity" />
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

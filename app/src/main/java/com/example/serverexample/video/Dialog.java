@@ -3,6 +3,7 @@ package com.example.serverexample.video;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -21,8 +22,8 @@ public class Dialog {
         alertDialogBuilder.setPositiveButton("Подключиться", callParticipantsClickListener);
         alertDialogBuilder.setNegativeButton("Отменить", cancelClickListener);
         alertDialogBuilder.setCancelable(false);
-
         setRoomNameFieldInDialog(participantEditText, alertDialogBuilder);
+
 
         return alertDialogBuilder.create();
     }

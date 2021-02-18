@@ -24,6 +24,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.serverexample.exerciseorhomework.UploadHWAsync;
+import com.example.serverexample.video.CustomFragmentStudent;
+import com.example.serverexample.video.VideoActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,7 +53,7 @@ import static com.example.serverexample.R.drawable.bluerect;
 public class GettingExerciseWithUploadingHW extends Fragment {
     Context mc;
     TextView homeTask, path, theme, lesson;
-    Button buttonUP, selbtn, download;
+    Button buttonUP, selbtn, download, con;
     public static Uri pathstr;
     public static String pathStr="", description="", idLESSON="", mimeType = "", jsonurl="",jsonurl2="", LessonName="", topic="";
     EditText editText;
@@ -84,6 +86,18 @@ public class GettingExerciseWithUploadingHW extends Fragment {
         homeTask = v.findViewById(R.id.textViewHomeTask);
         download = v.findViewById(R.id.down);
 
+
+        con = v.findViewById(R.id.buttonCon);
+        con.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                CustomFragmentStudent customFragmentStudent = new CustomFragmentStudent();
+                customFragmentStudent.show(getActivity().getSupportFragmentManager(), "custom");
+
+
+            }
+        });
         lesson = v.findViewById(R.id.textView6);
         lesson.setText(LessonName);
         theme = v.findViewById(R.id.theme);

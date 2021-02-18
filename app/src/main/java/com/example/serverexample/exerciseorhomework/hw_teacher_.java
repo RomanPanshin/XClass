@@ -10,9 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.example.serverexample.R;
 
@@ -42,6 +45,9 @@ public class hw_teacher_ extends Fragment {
     ListView lv1;
     ArrayList<String> students,students2 ;
     HashMap<String, Integer> hashMap;
+    TextView nohw;
+    Button ask, see;
+    ImageView imageView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +65,14 @@ public class hw_teacher_ extends Fragment {
 
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_homework_teacher, container, false);
+        ask = v.findViewById(R.id.ask);
+        see = v.findViewById(R.id.seehomework);
+        imageView = v.findViewById(R.id.imageView4);
 
-
+        ask.setVisibility(View.INVISIBLE);
+        see.setVisibility(View.INVISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
+nohw = v.findViewById(R.id.textViewNoHW);
        jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateStr + "&lessonId=" + id;
         //jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e";
 System.out.println(jsonurl);
@@ -205,6 +217,9 @@ System.out.println(jsonurl);
                     }
 
 
+                }   if(jsonObject.optString("code").contentEquals("Error")){
+                    nohw.setVisibility(View.VISIBLE);
+                    lv1.setVisibility(View.INVISIBLE);
                 }
 
 
@@ -216,7 +231,7 @@ System.out.println(jsonurl);
                     scheduleList1,
                     R.layout.liststudents,
                     new String[]{"Name","filename", "fileURL", "description"},
-                    new int[] {R.id.listViewName});
+                    new int[] {R.id.listViewName, R.id.textView8, R.id.textView9, R.id.textView10});
 
             lv1.setAdapter(adapter);
 

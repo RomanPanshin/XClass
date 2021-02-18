@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -46,6 +48,8 @@ public class homework_teacher_check extends Fragment {
     ArrayList<HashMap<String, String>> scheduleList1;
     ListView lv1;
 TextView present, past;
+Button ask, see;
+ImageView imageView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +67,14 @@ TextView present, past;
 
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_homework_teacher, container, false);
+
+        ask = v.findViewById(R.id.ask);
+        see = v.findViewById(R.id.seehomework);
+        imageView = v.findViewById(R.id.imageView4);
+
+        ask.setVisibility(View.INVISIBLE);
+        see.setVisibility(View.INVISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
 
         present = v.findViewById(R.id.present);
         past = v.findViewById(R.id.past);
@@ -153,7 +165,7 @@ TextView present, past;
                     scheduleList1,
                     R.layout.list2,
                     new String[]{"LessonName", "numLesson", "idLesson", "id"},
-                    new int[] {R.id.listView10, R.id.listView11, R.id.textView12, R.id.txtid});
+                    new int[] {R.id.listView10, R.id.textView12, R.id.listView11, R.id.txtid});
 
             lv1.setAdapter(adapter);
 

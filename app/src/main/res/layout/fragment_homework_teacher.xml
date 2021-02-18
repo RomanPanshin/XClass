@@ -18,22 +18,21 @@
 
     <View
         android:id="@+id/view4"
-        android:layout_width="351dp"
-        android:layout_height="498dp"
+        android:layout_width="381dp"
+        android:layout_height="496dp"
         android:layout_marginTop="140dp"
-        android:background="@drawable/authcenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/backwithshadow"
         android:shadowColor="#8693DDF5"
         android:shadowDx="4"
         android:shadowDy="4"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
-android:id="@+id/biew"
-        android:layout_width="330dp"
-        android:layout_height="317dp"
+        android:id="@+id/biew"
+        android:layout_width="339dp"
+        android:layout_height="348dp"
 
         android:background="@drawable/calendarrect2"
         android:visibility="invisible"
@@ -47,10 +46,10 @@ android:id="@+id/biew"
 
     <org.naishadhparmar.zcustomcalendar.CustomCalendar
         android:id="@+id/custom_calendar"
-        android:layout_width="300dp"
+        android:layout_width="303dp"
         android:layout_height="300dp"
-        app:day_of_week_start_from="monday"
         android:visibility="invisible"
+        app:day_of_week_start_from="monday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -60,10 +59,10 @@ android:id="@+id/biew"
 
     <org.naishadhparmar.zcustomcalendar.CustomCalendar
         android:id="@+id/custom_calendar2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:day_of_week_start_from="monday"
+        android:layout_width="294dp"
+        android:layout_height="284dp"
         android:visibility="invisible"
+        app:day_of_week_start_from="monday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -77,7 +76,7 @@ android:id="@+id/biew"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
         android:text="Домашняя работа"
-        android:textColor="#3F3D56"
+        android:textColor="#FFFF"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,14 +84,14 @@ android:id="@+id/biew"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/ask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:background="@drawable/whitebutton"
+        android:layout_width="165dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/buttonforbar"
         android:fontFamily="@font/montserrat_bold"
         android:shadowColor="#8693DDF5"
         android:shadowDx="4"
@@ -102,16 +101,16 @@ android:id="@+id/biew"
         android:textColor="#3F3D56"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_calendar"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202" />
 
     <Button
         android:id="@+id/seehomework"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/whitebutton"
+        android:layout_width="165dp"
+        android:layout_height="38dp"
+        android:background="@color/without"
         android:fontFamily="@font/montserrat_bold"
         android:shadowColor="#8693DDF5"
         android:shadowDx="4"
@@ -121,19 +120,19 @@ android:id="@+id/biew"
         android:textColor="#3F3D56"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ask"
-        app:layout_constraintTop_toBottomOf="@+id/custom_calendar"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202" />
 
     <ListView
         android:id="@+id/listviewforteacherschedule"
         android:layout_width="295dp"
         android:layout_height="266dp"
 
-        android:elevation="10dp"
+
 android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,9 +140,33 @@ android:visibility="invisible"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <TextView
+        android:id="@+id/textViewNoHW"
+        android:layout_width="273dp"
+        android:layout_height="172dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:visibility="invisible"
+        android:text="Нет сданных работ"
+        android:textAlignment="center"
+        android:textColor="#993F3D56"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="379dp"
+        android:layout_height="139dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.165"
+        app:srcCompat="@drawable/bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

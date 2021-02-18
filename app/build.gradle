@@ -20,7 +20,7 @@ android {
                 "\"${getSecretProperty("TWILIO_ACCESS_TOKEN", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTS2MzMDNhODM5MmU3YzMzMWUxZjA2MTI0MDgyYjk4YWMwLTE2MTMxNTc3OTkiLCJpc3MiOiJTS2MzMDNhODM5MmU3YzMzMWUxZjA2MTI0MDgyYjk4YWMwIiwic3ViIjoiQUM3YTYzNTFhZDVhMWZmOWE1ZmZkMzAyYjNiNWMwZjA4YSIsImV4cCI6MTYxMzE2MTM5OSwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiRGltYSIsInZpZGVvIjp7InJvb20iOiJxcXEifX19.QcfhCtzZOO-rggqLGHp0I5-znXY6oHgqrHBylM2ZB5s")}\"")
         buildConfigField("boolean",
                 "USE_TOKEN_SERVER",
-                "${getSecretProperty("USE_TOKEN_SERVER", false)}")
+                "${getSecretProperty("USE_TOKEN_SERVER", true)}")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,6 +38,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+    implementation 'androidx.navigation:navigation-fragment:2.2.2'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
     testImplementation 'junit:junit:4.12'
     implementation 'com.squareup.okhttp3:okhttp:3.8.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

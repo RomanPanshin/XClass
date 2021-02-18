@@ -48,12 +48,21 @@ ListView lv;
         seehw = v.findViewById(R.id.seehomework);
 
 
+        customCalendar.setVisibility(View.VISIBLE);
+        viewBack.setVisibility(View.VISIBLE);
+        customCalendar2.setVisibility(View.INVISIBLE);
+        askhw.setBackgroundResource(R.drawable.buttonforbar);
+        seehw.setBackgroundResource(R.color.without);
+
+
         askhw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customCalendar.setVisibility(View.VISIBLE);
+               customCalendar.setVisibility(View.VISIBLE);
                 viewBack.setVisibility(View.VISIBLE);
                 customCalendar2.setVisibility(View.INVISIBLE);
+                askhw.setBackgroundResource(R.drawable.buttonforbar);
+                seehw.setBackgroundResource(R.color.without);
             }
         });
 
@@ -63,7 +72,8 @@ ListView lv;
                 viewBack.setVisibility(View.VISIBLE);
                 customCalendar.setVisibility(View.INVISIBLE);
                 customCalendar2.setVisibility(View.VISIBLE);
-
+                seehw.setBackgroundResource(R.drawable.buttonforbar);
+                askhw.setBackgroundResource(R.color.without);
 
             }
         });

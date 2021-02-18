@@ -17,15 +17,6 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:fontFamily="@font/montserrat_bold"/>
-    <item
-        android:id="@+id/homeworkBTNSTD"
-        android:title="Домашняя работа"
-        android:icon="@drawable/homework"
-        android:textColor="#3F3D56"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/montserrat_bold"
-        />
 
 
 </menu>

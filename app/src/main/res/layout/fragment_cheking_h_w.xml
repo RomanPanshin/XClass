@@ -6,6 +6,7 @@
     android:theme="@style/Platform.MaterialComponents"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <View
         android:id="@+id/view6"
         android:layout_width="wrap_content"
@@ -21,24 +22,36 @@
         android:layout_width="351dp"
         android:layout_height="498dp"
         android:layout_marginTop="140dp"
-        android:background="@drawable/authcenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/backwithshadow"
         android:shadowColor="#8693DDF5"
         android:shadowDx="4"
         android:shadowDy="4"
-        />
-
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textName"
+        android:layout_width="299dp"
+        android:layout_height="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Имя"
+        android:textColor="#3F3D56"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Имя"
+        android:text="Домашняя работа"
         android:textColor="#3F3D56"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -47,50 +60,65 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.195" />
 
     <View
 
         android:id="@+id/view7"
-        android:layout_width="333dp"
+        android:layout_width="310dp"
 
-        android:layout_height="226dp"
-        android:layout_marginStart="48dp"
+        android:layout_height="118dp"
         android:background="@drawable/buttonback"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388" />
+        app:layout_constraintVertical_bias="0.329" />
 
     <Button
         android:id="@+id/downStFile"
-        android:layout_width="130dp"
-        android:layout_height="46dp"
-        android:background="@drawable/whitebutton"
-        android:text="Скачать файл"
+        android:layout_width="117dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bluerect"
+        android:text="Скачать"
 
         android:textAllCaps="false"
         android:textColor="#7F7C8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.624" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textDesc"
-        android:layout_width="297dp"
-        android:layout_height="172dp"
+        android:layout_width="276dp"
+        android:layout_height="67dp"
         android:text="Описание не добавлено"
         android:textAllCaps="false"
         android:textColor="#7F7C8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.339" />
+
+    <EditText
+        android:id="@+id/textView7"
+        android:layout_width="111dp"
+        android:layout_height="70dp"
+        android:background="@drawable/markback"
+        android:hint="Оценка:"
+        android:textAlignment="center"
+        android:textColorHint="#A47F7C8B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.499" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

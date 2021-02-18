@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.serverexample.R;
@@ -20,6 +21,8 @@ public class ChekingHW extends Fragment {
 String name="", filename="", fileUrl="", description="";
 TextView desc, txtName;
  Button download;
+    Button ask, see;
+    ImageView imageView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,14 @@ TextView desc, txtName;
                              Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.fragment_cheking_h_w, container, false);
 
+        ask = v.findViewById(R.id.ask);
+        see = v.findViewById(R.id.seehomework);
+        imageView = v.findViewById(R.id.imageView4);
+
+        ask.setVisibility(View.INVISIBLE);
+        see.setVisibility(View.INVISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
+
         desc = v.findViewById(R.id.textDesc);
         txtName = v.findViewById(R.id.textName);
         download = v.findViewById(R.id.downStFile);
@@ -48,15 +59,19 @@ TextView desc, txtName;
         txtName.setText(name);
         }
 
-        download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new
-                        Intent(Intent.ACTION_VIEW, Uri.parse(fileUrl));
-                startActivity(browserIntent);
-            }
-        });
-
+        if (fileUrl!=null) {
+            download.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent browserIntent = new
+                            Intent(Intent.ACTION_VIEW, Uri.parse(fileUrl));
+                    startActivity(browserIntent);
+                }
+            });
+        }
+        else{
+            download.setVisibility(View.INVISIBLE);
+        }
         return v;
 
     }

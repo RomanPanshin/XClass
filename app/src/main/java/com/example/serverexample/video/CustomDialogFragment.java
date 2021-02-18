@@ -83,9 +83,10 @@ public  static String  token="", lessonID="";
                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        CustomDialogFragment.GetStart getStart = new CustomDialogFragment.GetStart();
+                       GetStart getStart = new GetStart();
                         getStart.execute();
 
+token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NTg4MjYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2MjQyNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoibjdreGxTRkdwcWVaajJlOExtUEl1eDNMbkhlMCIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.wUb_QJ14HG-nT7uIM6JXdkKzuJwv_0j_7VVp_BVplws";
 
                         if(token!=""){
                         Intent intent = new Intent(getContext(), VideoActivity.class);

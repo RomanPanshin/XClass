@@ -34,9 +34,6 @@ public class StudentActivityHome extends AppCompatActivity {
                         fragment = new MAterialStudentFragment();
                         break;
 
-                    case R.id.homeworkBTNSTD:
-                        fragment = new StudentActivity();
-                        break;
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.container2, fragment).commit();

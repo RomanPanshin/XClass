@@ -23,12 +23,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.serverexample.exerciseorhomework.UploadFileAsync;
+import com.example.serverexample.materials.UploadTopic;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
 import static com.example.serverexample.MainActivity.context;
@@ -39,7 +44,8 @@ public class HomeworkActivity extends Fragment {
     Button button, selbtn, test;
     public static Uri pathstr;
     public static String pathStr="", description="", lessonID="", id="", mimeType = "";
-    EditText editText;
+    EditText editText, theme;
+    public static String simpleDate="", topic="";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,13 @@ public class HomeworkActivity extends Fragment {
                              Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.activity_homework, container, false);
         mc= v.getContext();
+
+        Date currentDate = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        simpleDate = dateFormat.format(currentDate);
+
+        System.out.println(simpleDate);
+        theme = v.findViewById(R.id.editTextTheme);
 
         test = v.findViewById(R.id.createTest);
         test.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +93,18 @@ public class HomeworkActivity extends Fragment {
             public void onClick(View v) {
                 description = editText.getText().toString().trim();
                 UploadFileAsync uploadFileAsync = new UploadFileAsync();
-
                 uploadFileAsync.execute();
+
+                topic = theme.getText().toString();
+                if(topic.isEmpty()) {
+                    theme.setError("Введите тему урока");
+                    theme.requestFocus();
+
+                    UploadTopic uploadTopic = new UploadTopic();
+                    uploadTopic.execute();
+                    return;
+                }
+
             }
         });
         /*downBTN.setOnClickListener(new View.OnClickListener() {
