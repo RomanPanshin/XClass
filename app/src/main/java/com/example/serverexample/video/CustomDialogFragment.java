@@ -86,7 +86,7 @@ public  static String  token="", lessonID="";
                        GetStart getStart = new GetStart();
                         getStart.execute();
 
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NTg4MjYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2MjQyNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoibjdreGxTRkdwcWVaajJlOExtUEl1eDNMbkhlMCIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.wUb_QJ14HG-nT7uIM6JXdkKzuJwv_0j_7VVp_BVplws";
+token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NjQ2NjYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2ODI2NiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiMEFjekZpVjVVZFFoZjNFWUpCTTZSMmI1VjNoMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.tv831ds92fwhNZCOLxCb6JYyh-gg_2prt2r2UuM31SY";
 
                         if(token!=""){
                         Intent intent = new Intent(getContext(), VideoActivity.class);

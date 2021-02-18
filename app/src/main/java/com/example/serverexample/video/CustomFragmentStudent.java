@@ -56,13 +56,13 @@ public class CustomFragmentStudent extends DialogFragment {
 
 
 
-
+            lessonID = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
             jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=" + lessonID;
 
             System.out.println(lessonID + " " + uID + " " + simpleDate + " " + classId);
 
-            CustomFragmentStudent.GetAccessToken getAccessToken = new CustomFragmentStudent.GetAccessToken();
-            getAccessToken.execute();
+           // CustomFragmentStudent.GetAccessToken getAccessToken = new CustomFragmentStudent.GetAccessToken();
+           // getAccessToken.execute();
         }
 
     }
@@ -79,9 +79,9 @@ public class CustomFragmentStudent extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NTg1MTQiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2MjExNCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoibjdreGxTRkdwcWVaajJlOExtUEl1eDNMbkhlMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.6Fy9u7sWQyJnSE0Sle1oxVcQrHmaAM_uFsbzCMNkZug'";
+token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NjM5NDQiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2NzU0NCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoibjdreGxTRkdwcWVaajJlOExtUEl1eDNMbkhlMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.9jhIbdF_aBafOHS-pYghqYwy-zsngopaHFEBFNZK768";
                         if(token!=""){
-                            Intent intent = new Intent(getContext(), VideoActivity.class);
+                            Intent intent = new Intent(getContext(), VideoActivityStudent.class);
                             startActivity(intent);}
 
                     }

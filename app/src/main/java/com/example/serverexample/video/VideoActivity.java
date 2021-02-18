@@ -1010,7 +1010,7 @@ public String roomeditText = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
             /*
              * Connect to room
              */
-            connectToRoom(CustomFragmentStudent.lessonID);
+            connectToRoom(CustomDialogFragment.lessonID);
            // System.out.println(roomEditText.getText().toString());
         };
     }

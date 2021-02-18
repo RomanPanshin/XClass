@@ -53,6 +53,9 @@
             android:name=".video.VideoActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".video.VideoActivityStudent"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".TeacherActivity"
             android:screenOrientation="portrait" />
         <activity
