@@ -11,7 +11,7 @@
         android:id="@+id/view8"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:background="@drawable/topauth"
+        android:background="@drawable/toptest2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -40,9 +40,9 @@
     <View
 
         android:id="@+id/view9"
-        android:layout_width="351dp"
-        android:layout_height="498dp"
-        android:background="@drawable/authcenter"
+        android:layout_width="365dp"
+        android:layout_height="500dp"
+        android:background="@drawable/backwithshadow"
         android:shadowColor="#8693DDF5"
         android:shadowDx="4"
         android:shadowDy="4"

@@ -22,7 +22,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView11"
         app:layout_constraintVertical_bias="1.0" />
+    <TextView
 
+        android:layout_width="66dp"
+        android:layout_height="31dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="15dp"
+        android:text="Урок "
+        android:textColor="#3F3D56"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.031" />
     <TextView
         android:id="@+id/listView11"
         android:layout_width="410dp"

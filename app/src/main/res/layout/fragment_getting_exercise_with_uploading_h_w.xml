@@ -10,7 +10,7 @@
         android:id="@+id/view6"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:background="@drawable/topauth"
+        android:background="@drawable/toptest2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +31,6 @@
         />
 
 
-
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -47,7 +45,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.251" />
 
     <View
 
@@ -143,12 +141,12 @@ android:textColor="#312D45"
     <TextView
         android:id="@+id/textView6"
         android:layout_width="383dp"
-        android:layout_height="31dp"
+        android:layout_height="50dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -171,17 +169,19 @@ android:textColor="#312D45"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.103" />
 
     <Button
         android:id="@+id/buttonCon"
-        android:layout_width="62dp"
-        android:layout_height="46dp"
-        android:background="@drawable/videocall2"
+        android:layout_width="189dp"
+        android:layout_height="41dp"
+        android:background="#0093DDF5"
+        android:text="Подключиться к уроку"
+        android:textAllCaps="false"
+        android:textColor="#312D45"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.851" />
+        app:layout_constraintVertical_bias="0.189" />
 </androidx.constraintlayout.widget.ConstraintLayout>

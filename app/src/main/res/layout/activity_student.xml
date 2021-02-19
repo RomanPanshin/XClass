@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:layout_marginBottom="13dp"
-        android:background="@drawable/topauth"
+        android:background="@drawable/toptest2"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

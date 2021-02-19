@@ -22,6 +22,7 @@ android {
                 "USE_TOKEN_SERVER",
                 "${getSecretProperty("USE_TOKEN_SERVER", true)}")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {

@@ -11,7 +11,7 @@
         android:id="@+id/view8"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:background="@drawable/topauth"
+        android:background="@drawable/toptest2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -20,7 +20,8 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView"
+
+        android:id="@+id/textView14"
         android:layout_width="348dp"
         android:layout_height="84dp"
         android:fontFamily="@font/poppins_semibold"
@@ -40,9 +41,9 @@
     <View
 
         android:id="@+id/view10"
-        android:layout_width="351dp"
-        android:layout_height="498dp"
-        android:background="@drawable/authcenter"
+        android:layout_width="356dp"
+        android:layout_height="515dp"
+        android:background="@drawable/backwithshadow"
         android:shadowColor="#8693DDF5"
         android:shadowDx="4"
         android:shadowDy="4"
@@ -54,8 +55,8 @@
 
     <EditText
         android:id="@+id/descriptionMaterial"
-        android:layout_width="341dp"
-        android:layout_height="135dp"
+        android:layout_width="327dp"
+        android:layout_height="111dp"
         android:background="@drawable/buttonback"
         android:ems="10"
         android:hint="Добавьте описание"
@@ -67,10 +68,9 @@
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.316" />
 
     <Button
 
@@ -83,15 +83,15 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.528" />
 
     <Button
         android:id="@+id/buttonUploadMaterial"
-        android:layout_width="306dp"
-        android:layout_height="59dp"
+        android:layout_width="304dp"
+        android:layout_height="46dp"
         android:background="@drawable/buttonwithshadow"
         android:text="Добавить"
         android:textAllCaps="false"
@@ -102,4 +102,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view8"
         app:layout_constraintVertical_bias="0.729" />
+
+    <TextView
+        android:id="@+id/textViewClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="TextView"
+        android:textColor="#3F3D56"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.221" />
 </androidx.constraintlayout.widget.ConstraintLayout>

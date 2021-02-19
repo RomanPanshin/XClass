@@ -37,7 +37,7 @@ public class MaterialReacherFragment extends Fragment {
     HashMap<String, String> schedule;
     ListView listView;
     private static String jsonurl;
-    String data="", name="", idClass="";
+    public static String data="", name="", idClass1="", idClass="";
     ArrayList<HashMap<String, String>> scheduleList;
 
 
@@ -45,7 +45,7 @@ public class MaterialReacherFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            idClass = getArguments().getString("ALessonId");
+            idClass1 = getArguments().getString("ALessonId");
         }
     }
     @Override
@@ -56,7 +56,7 @@ public class MaterialReacherFragment extends Fragment {
         listView = v.findViewById(R.id.listviewallclassesTeacher);
 
 
-        jsonurl = "http://borovik.fun:8080/additional/lessonsByClass?classId=" + idClass;
+        jsonurl = "http://borovik.fun:8080/additional/lessonsByClass?classId=" + idClass1;
 
         System.out.println(jsonurl);
         scheduleList = new ArrayList<>();
@@ -146,6 +146,7 @@ public class MaterialReacherFragment extends Fragment {
                     UploadMaterials fragment = new UploadMaterials();
                     Bundle args = new Bundle();
                     args.putString("ALessonId",value.get("idClass"));
+                    args.putString("LessonName",value.get("LessonName"));
                     fragment.setArguments(args);
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.container1, fragment);

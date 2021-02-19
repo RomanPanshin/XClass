@@ -10,7 +10,7 @@
         android:id="@+id/view6"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:background="@drawable/topauth"
+        android:background="@drawable/toptest2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,8 +46,8 @@
 
     <org.naishadhparmar.zcustomcalendar.CustomCalendar
         android:id="@+id/custom_calendar"
-        android:layout_width="303dp"
-        android:layout_height="300dp"
+        android:layout_width="339dp"
+        android:layout_height="348dp"
         android:visibility="invisible"
         app:day_of_week_start_from="monday"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,11 +129,11 @@
 
     <ListView
         android:id="@+id/listviewforteacherschedule"
-        android:layout_width="295dp"
-        android:layout_height="266dp"
+        android:layout_width="305dp"
+        android:layout_height="358dp"
 
 
-android:visibility="invisible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +166,7 @@ android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view6"
         app:layout_constraintVertical_bias="0.165"
-        app:srcCompat="@drawable/bar" />
+        app:srcCompat="@drawable/bar2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

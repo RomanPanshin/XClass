@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.example.serverexample.Person;
 import com.example.serverexample.R;
@@ -41,6 +42,7 @@ public class MAterialStudentFragment extends Fragment {
     String data="", name="", idClass="";
     ArrayList<HashMap<String, String>> scheduleList;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class MAterialStudentFragment extends Fragment {
 
 
         jsonurl = "http://borovik.fun:8080/additional/lessonsByClass?classId=" + Person.idclass;
+
+
 
         System.out.println(jsonurl);
         scheduleList = new ArrayList<>();
@@ -139,6 +143,7 @@ public class MAterialStudentFragment extends Fragment {
                     materialforLessomStudent fragment = new materialforLessomStudent();
                     Bundle args = new Bundle();
                     args.putString("ALessonId",idClass);
+
                     fragment.setArguments(args);
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.container2, fragment);

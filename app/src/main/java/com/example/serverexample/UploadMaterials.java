@@ -21,7 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.serverexample.materials.MaterialReacherFragment;
 import com.example.serverexample.materials.UploadMaterial;
 
 import java.io.File;
@@ -38,15 +40,16 @@ public class UploadMaterials extends Fragment {
 Context mc;
 
 Button btnFile, upload;
-public static String pathStr="", description="",  id="", mimeType = "",idClass="";
+public static String pathStr="", description="",  id="", mimeType = "",idClass="", LessonName="";
 EditText editText;
-
+    TextView textView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             idClass = getArguments().getString("ALessonId");
+            LessonName = getArguments().getString("LessonName");
         }
     }
 
@@ -58,6 +61,8 @@ EditText editText;
         editText =v.findViewById(R.id.descriptionMaterial);
         mc= v.getContext();
 
+        textView = v.findViewById(R.id.textViewClass);
+        textView.setText(MaterialReacherFragment.idClass1 + ", " + LessonName);
         System.out.println(idClass);
         upload = v.findViewById(R.id.buttonUploadMaterial);
         upload.setOnClickListener(new View.OnClickListener() {
