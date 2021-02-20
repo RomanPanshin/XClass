@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
 
     <View
@@ -24,17 +22,17 @@
 
     <View
         android:id="@+id/view3"
-        android:layout_width="355dp"
-        android:layout_height="274dp"
+        android:layout_width="364dp"
+        android:layout_height="408dp"
         android:layout_marginBottom="44dp"
-        android:background="@drawable/authcenter"
-        app:layout_constraintBottom_toTopOf="@+id/postbutton"
+        android:background="@drawable/backwithshadow"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
 
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972" />
+        app:layout_constraintVertical_bias="0.491" />
 
     <TextView
 
@@ -51,14 +49,16 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintVertical_bias="0.163" />
 
     <Button
-        android:id="@+id/postbutton"
+        android:id="@+id/postbutton1"
         android:layout_width="364dp"
         android:layout_height="52dp"
         android:background="@drawable/buttonwithshadow"
-        android:text="Сохранить"
+        android:text="Сохранить изменения"
+        android:textAllCaps="false"
+        android:textSize="18dp"
         android:textColor="@color/colorText"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +66,74 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.695" />
+        app:layout_constraintVertical_bias="0.817" />
+
+    <TextView
+        android:layout_width="229dp"
+        android:layout_height="60dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="12dp"
+        android:text="Иван Пушкарев"
+        android:textColor="#3F3D56"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.288" />
+
+    <TextView
+        android:layout_width="229dp"
+        android:layout_height="60dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="12dp"
+        android:text="Линор Соловьёв"
+        android:textColor="#3F3D56"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.365" />
+
+    <CheckBox
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:checked="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.277" />
+
+    <CheckBox
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.352" />
+    <!-- <ListView
+         android:id="@+id/listOfAttendance"
+         android:layout_width="329dp"
+         android:layout_height="346dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="@+id/view" >
+
+
+     </ListView>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

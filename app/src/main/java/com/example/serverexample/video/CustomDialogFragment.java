@@ -60,9 +60,11 @@ public  static String  token="", lessonID="";
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
            simpleDate = dateFormat.format(currentDate);
 
+            lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
 
                 jsonurl = "http://borovik.fun:8080/twilio/lesson/start";
-                jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=" + lessonID;
+               // jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=" + lessonID;
+            jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=c34f267d-77ce-48d2-b16e-c10ca2a8afef";
 
             System.out.println(lessonID + " " + uID + " " + simpleDate + " " + classId);
 
@@ -86,7 +88,7 @@ public  static String  token="", lessonID="";
                        GetStart getStart = new GetStart();
                         getStart.execute();
 
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NjQ2NjYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2ODI2NiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiMEFjekZpVjVVZFFoZjNFWUpCTTZSMmI1VjNoMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.tv831ds92fwhNZCOLxCb6JYyh-gg_2prt2r2UuM31SY";
+token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM4MzI0MDYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzgzNjAwNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiMEFjekZpVjVVZFFoZjNFWUpCTTZSMmI1VjNoMiIsInZpZGVvIjp7InJvb20iOiJjMzRmMjY3ZC03N2NlLTQ4ZDItYjE2ZS1jMTBjYTJhOGFmZWYifX19.lB323hEmPsagccVxKFfkbFqDvNkeUGGsJDBdevZ0eno";
 
                         if(token!=""){
                         Intent intent = new Intent(getContext(), VideoActivity.class);

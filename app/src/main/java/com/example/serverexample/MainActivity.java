@@ -79,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+                if(request.equals("true") && claim.equals("admin")){
+                    Intent intent = new Intent(MainActivity.this, AdminHomeActivity.class);
+                    startActivity(intent);
+                }
+
                 if(request.equals("false")){
                     Toast.makeText(getApplicationContext(), "Вы не авторизированы", Toast.LENGTH_SHORT).show();
                 }

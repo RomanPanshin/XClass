@@ -19,8 +19,8 @@
     <View
         android:id="@+id/view4"
         android:layout_width="381dp"
-        android:layout_height="496dp"
-        android:layout_marginTop="140dp"
+        android:layout_height="517dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/backwithshadow"
         android:shadowColor="#8693DDF5"
         android:shadowDx="4"
@@ -46,8 +46,8 @@
 
     <org.naishadhparmar.zcustomcalendar.CustomCalendar
         android:id="@+id/custom_calendar"
-        android:layout_width="339dp"
-        android:layout_height="348dp"
+        android:layout_width="294dp"
+        android:layout_height="284dp"
         android:visibility="invisible"
         app:day_of_week_start_from="monday"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,7 +90,7 @@
         android:id="@+id/ask"
         android:layout_width="165dp"
         android:layout_height="38dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="52dp"
         android:background="@drawable/buttonforbar"
         android:fontFamily="@font/montserrat_bold"
         android:shadowColor="#8693DDF5"
@@ -104,7 +104,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.191" />
 
     <Button
         android:id="@+id/seehomework"
@@ -125,7 +125,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ask"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.191" />
 
     <ListView
         android:id="@+id/listviewforteacherschedule"
@@ -162,11 +162,10 @@
         android:layout_height="139dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view6"
-        app:layout_constraintVertical_bias="0.165"
-        app:srcCompat="@drawable/bar2" />
+        app:layout_constraintVertical_bias="0.157"
+        app:srcCompat="@drawable/bar3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

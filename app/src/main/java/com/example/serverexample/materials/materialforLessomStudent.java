@@ -61,8 +61,8 @@ public class materialforLessomStudent extends Fragment {
         listView = v.findViewById(R.id.listviewMaterial);
         imageView =  v.findViewById(R.id.noMaterial);
 
-        jsonurl = "http://borovik.fun:8080/additional/Files?ALessonId=" + ALessonId;
-        //jsonurl = "http://borovik.fun:8080/additional/Files?ALessonId=0015badc-c252-4fa5-840e-1a93df9976a5";
+       // jsonurl = "http://borovik.fun:8080/additional/Files?ALessonId=" + ALessonId;
+       jsonurl = "http://borovik.fun:8080/additional/Files?ALessonId=0015badc-c252-4fa5-840e-1a93df9976a5";
 
         System.out.println(jsonurl);
         scheduleList = new ArrayList<>();
@@ -156,7 +156,8 @@ public class materialforLessomStudent extends Fragment {
                     HashMap<String,String>  value =  (HashMap<String,String>) parent.getItemAtPosition(position);
 
                     Intent browserIntent = new
-                            Intent(Intent.ACTION_VIEW, Uri.parse(value.get("fileUrl")));
+                           // Intent(Intent.ACTION_VIEW, Uri.parse(value.get("fileUrl")));
+                            Intent(Intent.ACTION_VIEW, Uri.parse("http://borovik.fun:8080/r/c63f485e-7cb0-4129-a47b-0f992d3cedf6.png"));
                     startActivity(browserIntent);
                 }
             });

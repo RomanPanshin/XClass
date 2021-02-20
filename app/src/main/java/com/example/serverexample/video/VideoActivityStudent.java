@@ -120,7 +120,7 @@ public class VideoActivityStudent extends AppCompatActivity {
     private VideoSink localVideoView;
     private boolean disconnectedFromOnDestroy;
     private boolean enableAutomaticSubscription;
-    public String roomeditText = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
+    public String roomeditText = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
     public TextView roomText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1097,7 +1097,7 @@ public class VideoActivityStudent extends AppCompatActivity {
     private void retrieveAccessTokenfromServer() {
 
 
-        this.accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NjM5NDQiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2NzU0NCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoibjdreGxTRkdwcWVaajJlOExtUEl1eDNMbkhlMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.9jhIbdF_aBafOHS-pYghqYwy-zsngopaHFEBFNZK768";
+        this.accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM3NTYxMTYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzc1OTcxNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiUVIwSzdjZnZreGFEeGZIN1FkRGxuQWo0VnFkMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.SzDfDVIU_Lzwn_d0ovxTs1ZobKRkR1c0C0BatHfn4t0";
         System.out.println(accessToken);
 
     }

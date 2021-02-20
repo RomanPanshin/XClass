@@ -28,10 +28,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".video.InfoForAdmin"></activity>
         <activity
             android:name=".video.Attendance"
             android:label="@string/title_activity_attendance"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StudentActivityHome"
             android:screenOrientation="portrait" />
@@ -52,6 +53,13 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminHomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminGetPastLessons"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".video.VideoActivity"
             android:screenOrientation="portrait" />

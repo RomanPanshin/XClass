@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Platform.MaterialComponents"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:background="@drawable/toptest2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="351dp"
+        android:layout_height="498dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/authcenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="329dp"
+
+        android:layout_height="179dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.173"
+        app:srcCompat="@drawable/bar3" />
+
+    <Button
+        android:id="@+id/createTest"
+        android:layout_width="131dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="72dp"
+
+        android:background="@drawable/buttonforbar"
+        android:fontFamily="@font/montserrat_bold"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="Тест"
+        android:textAllCaps="false"
+        android:textColor="#3F3D56"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
+
+    <Button
+        android:id="@+id/homework"
+        android:layout_width="132dp"
+        android:layout_height="41dp"
+        android:background="@color/without"
+        android:fontFamily="@font/montserrat_bold"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="ДЗ"
+        android:textAllCaps="false"
+        android:textColor="#3F3D56"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toEndOf="@+id/createTest"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
+
+    <TextView
+        android:id="@+id/qua1"
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:elevation="9dp"
+        android:ems="10"
+        android:text="Годы ВОВ"
+       android:textColor="#312D45"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.314" />
+
+
+    <TextView
+
+        android:id="@+id/textView4"
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+        android:elevation="9dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="1941-1945"
+
+
+        android:textColor="#312D45"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.353" />
+
+    <TextView
+
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+        android:elevation="9dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="1939-1945"
+        android:textColor="#312D45"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.433" />
+
+    <TextView
+
+        android:id="@+id/textView15"
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+        android:elevation="9dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+
+        android:text="1935-1945"
+
+
+        android:textColor="#312D45"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <View
+        android:id="@+id/back1"
+
+        android:layout_width="323dp"
+
+
+        android:layout_height="186dp"
+        android:background="@drawable/backwithshadow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.389" />
+
+    <TextView
+        android:id="@+id/num1"
+        android:layout_width="18dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="1. "
+
+
+        android:textColor="#3F3D56"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.315" />
+
+
+    <CheckBox
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:buttonTint="#89D8F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.352" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="#89D8F3"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.391" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="#89D8F3"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.431" />
+
+
+    <Button
+android:id="@+id/finish"
+        android:layout_width="275dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="216dp"
+        android:background="@drawable/buttonwithshadow"
+        android:text="Завершить"
+        android:textAllCaps="false"
+        android:textColor="@color/colorText"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.817" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

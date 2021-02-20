@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.serverexample.R;
 
@@ -21,7 +22,7 @@ public class ChekingHW extends Fragment {
 String name="", filename="", fileUrl="", description="";
 TextView desc, txtName;
  Button download;
-    Button ask, see;
+    Button ask, see, save;
     ImageView imageView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,13 +40,17 @@ TextView desc, txtName;
                              Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.fragment_cheking_h_w, container, false);
 
-        ask = v.findViewById(R.id.ask);
-        see = v.findViewById(R.id.seehomework);
-        imageView = v.findViewById(R.id.imageView4);
 
-        ask.setVisibility(View.INVISIBLE);
-        see.setVisibility(View.INVISIBLE);
-        imageView.setVisibility(View.INVISIBLE);
+        //imageView = v.findViewById(R.id.imageView4);
+
+save = v.findViewById(R.id.postbutton30);
+save.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getContext(), "Сохранено", Toast.LENGTH_SHORT).show();
+    }
+});
+
 
         desc = v.findViewById(R.id.textDesc);
         txtName = v.findViewById(R.id.textName);
@@ -65,7 +70,7 @@ TextView desc, txtName;
                 public void onClick(View v) {
                     Intent browserIntent = new
                             Intent(Intent.ACTION_VIEW, Uri.parse(fileUrl));
-                    startActivity(browserIntent);
+                         startActivity(browserIntent);
                 }
             });
         }

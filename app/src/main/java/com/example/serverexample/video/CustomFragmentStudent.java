@@ -56,8 +56,9 @@ public class CustomFragmentStudent extends DialogFragment {
 
 
 
-            lessonID = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
-            jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=" + lessonID;
+            lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
+           // jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=" + lessonID;
+            jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=c34f267d-77ce-48d2-b16e-c10ca2a8afef";
 
             System.out.println(lessonID + " " + uID + " " + simpleDate + " " + classId);
 
@@ -79,7 +80,7 @@ public class CustomFragmentStudent extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM2NjM5NDQiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzY2NzU0NCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoibjdreGxTRkdwcWVaajJlOExtUEl1eDNMbkhlMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.9jhIbdF_aBafOHS-pYghqYwy-zsngopaHFEBFNZK768";
+token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM3NTYxMTYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzc1OTcxNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiUVIwSzdjZnZreGFEeGZIN1FkRGxuQWo0VnFkMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.SzDfDVIU_Lzwn_d0ovxTs1ZobKRkR1c0C0BatHfn4t0";
                         if(token!=""){
                             Intent intent = new Intent(getContext(), VideoActivityStudent.class);
                             startActivity(intent);}

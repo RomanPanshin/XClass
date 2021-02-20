@@ -48,6 +48,7 @@ public class hw_teacher_ extends Fragment {
     TextView nohw;
     Button ask, see;
     ImageView imageView;
+    int i=0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +63,7 @@ public class hw_teacher_ extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        System.out.println("HHHHHHH");
 
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_homework_teacher, container, false);
@@ -73,8 +75,8 @@ public class hw_teacher_ extends Fragment {
         see.setVisibility(View.INVISIBLE);
         imageView.setVisibility(View.INVISIBLE);
 nohw = v.findViewById(R.id.textViewNoHW);
-       jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateStr + "&lessonId=" + id;
-        //jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e";
+       //jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateStr + "&lessonId=" + id;
+        jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e";
 System.out.println(jsonurl);
         scheduleList1 = new ArrayList<>();
         hashMap = new HashMap<>();
@@ -133,8 +135,8 @@ System.out.println(jsonurl);
                     exerciseID = result.optString ("id");
                     System.out.println(exerciseID);
 
-                     jsonurl2 ="http://borovik.fun:8080/homework/getByExerciseId?exerciseId=" + exerciseID;
-                    //jsonurl2 ="http://borovik.fun:8080/homework/getByExerciseId?exerciseId=2b065ca7-6dc0-4ea7-bb68-a0b46d2baaac";
+                     //jsonurl2 ="http://borovik.fun:8080/homework/getByExerciseId?exerciseId=" + exerciseID;
+                    jsonurl2 ="http://borovik.fun:8080/homework/getByExerciseId?exerciseId=2b065ca7-6dc0-4ea7-bb68-a0b46d2baaac";
 
                     hw_teacher_.GetHWFromUsers getShedule = new  hw_teacher_.GetHWFromUsers();
                     getShedule.execute();
@@ -170,6 +172,7 @@ System.out.println(jsonurl);
                         current = bufferedReader.readLine();
                         data1 = data1 + current;
                     }
+                    System.out.println(data1);
                     return data1;
 
                 } catch (MalformedURLException e) {
@@ -208,11 +211,24 @@ System.out.println(jsonurl);
                         students  = new ArrayList<String>();
                         students.add(uid);
                         schedule1 = new HashMap<>();
+                        switch (i){
+                            case 0: {name="Марина Хохлова"; i++;}
+                                break;
+                            case 1: {name="Сирафима Золочевская";i++;}
+                                break;
+                            case 2: {name="Николай Бунин";i++;}
+                                break;
+                            case 3: {name="Стас Михайлов";i++;}
+                                break;
+
+                        }
                         schedule1.put("Name",name);
                         schedule1.put("filename",filename);
                         schedule1.put("fileURL",fileURL);
                         schedule1.put("description",description);
                         scheduleList1.add(schedule1);
+
+
 
                     }
 

@@ -47,9 +47,7 @@ public class StudentActivity extends Fragment {
     ImageView imageView;
     private static String jsonurl ;
     Button left, right;
-    public StudentActivity() {
-        // Required empty public constructor
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -31,81 +31,119 @@
         />
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Домашнее задание"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="329dp"
+
+        android:layout_height="179dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.173"
+        app:srcCompat="@drawable/bar3" />
+
+    <Button
+        android:id="@+id/createTest"
+        android:layout_width="131dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="72dp"
+        android:background="@color/without"
+
+        android:fontFamily="@font/montserrat_bold"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="Тест"
+        android:textAllCaps="false"
         android:textColor="#3F3D56"
-        android:textSize="25dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
+
+    <Button
+        android:id="@+id/homework"
+        android:layout_width="132dp"
+        android:layout_height="41dp"
+        android:background="@drawable/buttonforbar"
+        android:fontFamily="@font/montserrat_bold"
+        android:shadowColor="#8693DDF5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="ДЗ"
+        android:textAllCaps="false"
+        android:textColor="#3F3D56"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toEndOf="@+id/createTest"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.235" />
 
     <View
 
         android:id="@+id/view7"
-        android:layout_width="332dp"
+        android:layout_width="275dp"
 
-        android:layout_height="84dp"
+        android:layout_height="70dp"
         android:layout_marginStart="40dp"
         android:background="@drawable/buttonback"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
+        app:layout_constraintVertical_bias="0.364" />
 
     <Button
         android:id="@+id/down"
-        android:layout_width="130dp"
-        android:layout_height="46dp"
-        android:background="@drawable/whitebutton"
-        android:text="Скачать файл"
+        android:layout_width="56dp"
+        android:layout_height="40dp"
+        android:background="@drawable/clip2"
+
 
         android:textAllCaps="false"
         android:textColor="#7F7C8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.416" />
+        app:layout_constraintVertical_bias="0.37" />
 
     <TextView
         android:id="@+id/textViewHomeTask"
-        android:layout_width="290dp"
-        android:layout_height="57dp"
+        android:layout_width="245dp"
+        android:layout_height="54dp"
         android:text="Описание не добавлено"
         android:textAllCaps="false"
         android:textColor="#7F7C8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.377" />
 
     <EditText
         android:id="@+id/editTexthWTask"
-        android:layout_width="336dp"
-        android:layout_height="102dp"
+        android:layout_width="274dp"
+        android:layout_height="70dp"
         android:background="@drawable/buttonback"
-android:textColor="#312D45"
         android:hint="Введите ответ"
         android:textAlignment="center"
+        android:textColor="#312D45"
         android:textColorHint="#7F7C8B"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.531" />
+        app:layout_constraintVertical_bias="0.529" />
 
     <Button
         android:id="@+id/selectHWFile"
@@ -114,14 +152,14 @@ android:textColor="#312D45"
         android:background="@drawable/nn"
         android:text="Выбрать файл"
         android:textAllCaps="false"
-        android:textColor="#3F3D56"
+        android:textColor="#7C7987"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741" />
+        app:layout_constraintVertical_bias="0.727" />
 
     <Button
         android:id="@+id/uploadhw"
@@ -130,7 +168,7 @@ android:textColor="#312D45"
         android:background="@drawable/whitebutton"
         android:text="Загрузить"
         android:textAllCaps="false"
-        android:textColor="#7F7C8B"
+        android:textColor="#302D44"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.88"
@@ -183,5 +221,5 @@ android:textColor="#312D45"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintVertical_bias="0.126" />
 </androidx.constraintlayout.widget.ConstraintLayout>

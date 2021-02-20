@@ -53,7 +53,7 @@ import static com.example.serverexample.R.drawable.bluerect;
 public class GettingExerciseWithUploadingHW extends Fragment {
     Context mc;
     TextView homeTask, path, theme, lesson;
-    Button buttonUP, selbtn, download, con;
+    Button buttonUP, selbtn, download, con, createTest, homework;
     public static Uri pathstr;
     public static String pathStr="", description="", idLESSON="", mimeType = "", jsonurl="",jsonurl2="", LessonName="", topic="";
     EditText editText;
@@ -79,13 +79,45 @@ public class GettingExerciseWithUploadingHW extends Fragment {
         String dateText = dateFormat.format(currentDate);
 
 
-        jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateText + "&lessonId=" + idLESSON;
-        jsonurl2 = "http://borovik.fun:8080/lessons/topic/get?lessonId=" + idLESSON + "&simpleDate=" + dateText;
+       // jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateText + "&lessonId=" + idLESSON;
+        jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e" ;
+        //jsonurl2 = "http://borovik.fun:8080/lessons/topic/get?lessonId=" + idLESSON + "&simpleDate=" + dateText;
+        jsonurl2 = "http://borovik.fun:8080/lessons/topic/get?lessonId=91898941-cc42-4275-ad3b-dbdcd51db21a&simpleDate=15.02.2021";
 
         System.out.println(jsonurl2);
         homeTask = v.findViewById(R.id.textViewHomeTask);
+
         download = v.findViewById(R.id.down);
 
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new
+                        Intent(Intent.ACTION_VIEW, Uri.parse("http://borovik.fun:8080/r/c63f485e-7cb0-4129-a47b-0f992d3cedf6.png"));
+                startActivity(browserIntent);
+            }
+        });
+
+        homework = v.findViewById(R.id.homework);
+
+        createTest = v.findViewById(R.id.createTest);
+
+        createTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment testStudent = new TestStudent();
+
+
+                getFragmentManager().beginTransaction().replace(R.id.container2, testStudent).commit();
+            }
+        });
+
+        homework.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         con = v.findViewById(R.id.buttonCon);
         con.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +163,7 @@ System.out.println(idLESSON + " " +  description);
                 uploadHWAsync.execute();
             }
         });
-        /*downBTN.setOnClickListener(new View.OnClickListener() {
+       /*downBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DownloadFileAsync downloadFileAsync = new DownloadFileAsync(HomeworkActivity.this, "http://borovik.fun:8080/r/f6576fd5-7bd9-47a2-bf7a-79ee7b3eb261.jpg");

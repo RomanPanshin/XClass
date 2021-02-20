@@ -2,6 +2,8 @@ package com.example.serverexample;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.loader.content.CursorLoader;
 
 import android.content.ContentUris;
@@ -21,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.serverexample.exerciseorhomework.UploadFileAsync;
 import com.example.serverexample.materials.UploadTopic;
@@ -41,7 +44,7 @@ import static com.example.serverexample.MainActivity.context;
 public class HomeworkActivity extends Fragment {
     Context mc;
     TextView nameOfHomework, path;
-    Button button, selbtn, test;
+    Button button, selbtn, test, hw;
     public static Uri pathstr;
     public static String pathStr="", description="", lessonID="", id="", mimeType = "";
     EditText editText, theme;
@@ -68,12 +71,34 @@ public class HomeworkActivity extends Fragment {
         theme = v.findViewById(R.id.editTextTheme);
 
         test = v.findViewById(R.id.createTest);
+        hw = v.findViewById(R.id.homework);
+
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
+
+                test.setBackgroundResource(R.drawable.buttonforbar);
+                hw.setBackgroundResource(R.color.without);
+
+                Fragment testTeacher = new TestTeacher();
+
+
+                getFragmentManager().beginTransaction().replace(R.id.container1, testTeacher).commit();
+
             }
         });
+
+        hw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                hw.setBackgroundResource(R.drawable.buttonforbar);
+                test.setBackgroundResource(R.color.without);
+            }
+        });
+
+
         editText = v.findViewById(R.id.editTextHw);
         path = v.findViewById(R.id.path);
         button = v.findViewById(R.id.addFile);
@@ -105,6 +130,7 @@ public class HomeworkActivity extends Fragment {
                     return;
                 }
 
+                Toast.makeText(getContext(), "Сохранено", Toast.LENGTH_SHORT).show();
             }
         });
         /*downBTN.setOnClickListener(new View.OnClickListener() {
