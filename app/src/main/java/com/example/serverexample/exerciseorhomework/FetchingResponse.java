@@ -11,23 +11,42 @@ import android.widget.Toast;
 import com.example.serverexample.MainActivity;
 import com.example.serverexample.Person;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.SingleClientConnManager;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HostnameVerifier;
 
 
 public class FetchingResponse extends AsyncTask<String, Void, String> {
@@ -35,11 +54,25 @@ public class FetchingResponse extends AsyncTask<String, Void, String> {
     public String response, resutltext="";
 
     JSONObject structure;
-    private static final String url = "http://borovik.fun:8080/auth";
+    private static final String url = "https://borovik.fun:8080/auth";
     @Override
     protected String doInBackground(String... strings) {
 
-        HttpClient httpclient = new DefaultHttpClient();
+        HttpParams params = new BasicHttpParams();
+        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+        HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+
+        SchemeRegistry schemeRegistry = new SchemeRegistry();
+        schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
+        SingleClientConnManager mgr = new SingleClientConnManager(params, schemeRegistry);
+
+
+
+        HttpClient httpclient = new DefaultHttpClient( mgr, params);
+
+        
+        //HttpClient httpclient = getNewHttpClient();
+
         ResponseHandler<String> res = new BasicResponseHandler();
         HttpPost httppost = new HttpPost(url);
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -48,8 +81,11 @@ public class FetchingResponse extends AsyncTask<String, Void, String> {
 
         try {
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            response = httpclient.execute(httppost, res);
-            System.out.println(response);
+            HttpResponse response = httpclient.execute(httppost);
+
+            HttpEntity entity = response.getEntity();
+            InputStream is = entity.getContent();
+            System.out.println(is);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e) {
@@ -100,6 +136,29 @@ public class FetchingResponse extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
 
+    }
+    public static HttpClient getNewHttpClient() {
+        try {
+            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            trustStore.load(null, null);
+
+            SSLSocketFactory sf = new MySSLSocketFactory(trustStore);
+            sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
+            HttpParams params = new BasicHttpParams();
+            HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+
+            SchemeRegistry registry = new SchemeRegistry();
+            registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+            registry.register(new Scheme("https", sf, 443));
+
+            ClientConnectionManager ccm = new ThreadSafeClientConnManager(params, registry);
+
+            return new DefaultHttpClient(ccm, params);
+        } catch (Exception e) {
+            return new DefaultHttpClient();
+        }
     }
 
 
