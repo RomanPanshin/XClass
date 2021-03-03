@@ -63,7 +63,7 @@ dependencies {
     implementation "com.android.support:preference-v14:${versions.supportLibrary}"
     implementation "com.android.support:design:${versions.supportLibrary}"
 
-
+    implementation 'org.apache.directory.studio:org.apache.commons.io:2.4'
 }
 repositories {
     mavenCentral()

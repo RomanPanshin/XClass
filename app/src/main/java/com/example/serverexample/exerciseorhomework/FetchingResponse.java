@@ -1,18 +1,13 @@
 package com.example.serverexample.exerciseorhomework;
 
-
-import android.app.Activity;
-import android.app.Application;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.Toast;
+
 
 
 import com.example.serverexample.MainActivity;
 import com.example.serverexample.Person;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
+
 import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -25,28 +20,29 @@ import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.SingleClientConnManager;
+
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
-import org.json.JSONArray;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.io.UnsupportedEncodingException;
+
 import java.security.KeyStore;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.net.ssl.HostnameVerifier;
 
 
 public class FetchingResponse extends AsyncTask<String, Void, String> {
@@ -54,38 +50,27 @@ public class FetchingResponse extends AsyncTask<String, Void, String> {
     public String response, resutltext="";
 
     JSONObject structure;
-    private static final String url = "https://borovik.fun:8080/auth";
+    private static final String url = "https://borovik.fun/auth";
     @Override
     protected String doInBackground(String... strings) {
 
-        HttpParams params = new BasicHttpParams();
-        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
-        HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
 
-        SchemeRegistry schemeRegistry = new SchemeRegistry();
-        schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        SingleClientConnManager mgr = new SingleClientConnManager(params, schemeRegistry);
-
-
-
-        HttpClient httpclient = new DefaultHttpClient( mgr, params);
-
-        
-        //HttpClient httpclient = getNewHttpClient();
-
-        ResponseHandler<String> res = new BasicResponseHandler();
-        HttpPost httppost = new HttpPost(url);
-        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-        nameValuePairs.add(new BasicNameValuePair("email", emailTxt));
-        nameValuePairs.add(new BasicNameValuePair("password", passwordTxt));
+        HttpClient httpclient = getNewHttpClient();
 
         try {
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            HttpResponse response = httpclient.execute(httppost);
 
-            HttpEntity entity = response.getEntity();
-            InputStream is = entity.getContent();
-            System.out.println(is);
+           ResponseHandler<String> res = new BasicResponseHandler();
+            HttpPost httppost = new HttpPost("https://borovik.fun/auth");
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+            nameValuePairs.add(new BasicNameValuePair("email", emailTxt));
+            nameValuePairs.add(new BasicNameValuePair("password", passwordTxt));
+
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+            response = httpclient.execute(httppost, res);
+
+            System.out.println(response);
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e) {
@@ -162,7 +147,7 @@ public class FetchingResponse extends AsyncTask<String, Void, String> {
     }
 
 
-}
+    }
 
 
 
