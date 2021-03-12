@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.SSLCertificateSocketFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -12,16 +13,29 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.serverexample.Person;
 import com.example.serverexample.R;
+import com.example.serverexample.exerciseorhomework.MySSLSocketFactory;
 
+import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,12 +48,17 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.KeyStore;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import javax.net.ssl.HttpsURLConnection;
+
+import static com.example.serverexample.exerciseorhomework.FetchingResponse.getNewHttpClient;
 
 public class CustomDialogFragment extends DialogFragment {
 
@@ -60,11 +79,10 @@ public  static String  token="", lessonID="";
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
            simpleDate = dateFormat.format(currentDate);
 
-            lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
+            //lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
 
-                jsonurl = "http://borovik.fun:8080/twilio/lesson/start";
-               // jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=" + lessonID;
-            jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=c34f267d-77ce-48d2-b16e-c10ca2a8afef";
+                jsonurl = "https://borovik.fun/twilio/lesson/start";
+                jsonurl2 = "https://borovik.fun/token/?identity=" + "xxx" + "&room=" + lessonID;
 
             System.out.println(lessonID + " " + uID + " " + simpleDate + " " + classId);
 
@@ -88,11 +106,10 @@ public  static String  token="", lessonID="";
                        GetStart getStart = new GetStart();
                         getStart.execute();
 
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM4MzI0MDYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzgzNjAwNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiMEFjekZpVjVVZFFoZjNFWUpCTTZSMmI1VjNoMiIsInZpZGVvIjp7InJvb20iOiJjMzRmMjY3ZC03N2NlLTQ4ZDItYjE2ZS1jMTBjYTJhOGFmZWYifX19.lB323hEmPsagccVxKFfkbFqDvNkeUGGsJDBdevZ0eno";
-
                         if(token!=""){
-                        Intent intent = new Intent(getContext(), VideoActivity.class);
-                        startActivity(intent);}
+                       Intent intent = new Intent(getContext(), VideoActivity.class);
+                        startActivity(intent);
+                        }
 
                     }
                 })
@@ -105,12 +122,16 @@ token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJ
 
         @Override
         protected String doInBackground(String... strings) {
-            HttpClient httpclient = new DefaultHttpClient();
-            ResponseHandler<String> res = new BasicResponseHandler();
-            HttpPost httppost = new HttpPost(jsonurl);
+
+            HttpClient httpclient = getNewHttpClient();
+
+
 
 
             try {
+                ResponseHandler<String> res = new BasicResponseHandler();
+                HttpPost httppost = new HttpPost(jsonurl);
+
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
                 nameValuePairs.add(new BasicNameValuePair("lessonId", lessonID));
                 nameValuePairs.add(new BasicNameValuePair("UID", uID));
@@ -150,7 +171,11 @@ token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJ
                     url = new URL(jsonurl2);
                     httpURLConnection = (HttpURLConnection) url.openConnection();
 
-
+                    if (httpURLConnection instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                        httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                        httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                    }
                     InputStream inputStream = httpURLConnection.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -177,19 +202,38 @@ token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJ
         }
         @Override
         protected void onPostExecute(String s) {
-            try {
-                JSONObject jsonObject = new JSONObject(s);
-                if(jsonObject.optString("code").contentEquals("Success")){
 
-                    token = jsonObject.optString("result");
-                    System.out.println(token);
-                    }
+               System.out.println(s);
+               token = s;
 
-                } catch (JSONException e) {
-                e.printStackTrace();
-            }
         }
 
 
 
-        }}
+        }
+
+
+    public static HttpClient getNewHttpClient() {
+        try {
+            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            trustStore.load(null, null);
+
+            SSLSocketFactory sf = new MySSLSocketFactory(trustStore);
+            sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
+            HttpParams params = new BasicHttpParams();
+            HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+
+            SchemeRegistry registry = new SchemeRegistry();
+            registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+            registry.register(new Scheme("https", sf, 443));
+
+            ClientConnectionManager ccm = new ThreadSafeClientConnManager(params, registry);
+
+            return new DefaultHttpClient(ccm, params);
+        } catch (Exception e) {
+            return new DefaultHttpClient();
+        }
+    }
+}

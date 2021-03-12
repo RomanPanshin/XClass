@@ -1,5 +1,6 @@
 package com.example.serverexample.exerciseorhomework;
 
+import android.net.SSLCertificateSocketFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.serverexample.R;
 
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,8 +32,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.net.ssl.HttpsURLConnection;
 
 
 public class hw_teacher_ extends Fragment {
@@ -63,7 +68,7 @@ public class hw_teacher_ extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        System.out.println("HHHHHHH");
+
 
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_homework_teacher, container, false);
@@ -76,7 +81,7 @@ public class hw_teacher_ extends Fragment {
         imageView.setVisibility(View.INVISIBLE);
 nohw = v.findViewById(R.id.textViewNoHW);
        //jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateStr + "&lessonId=" + id;
-        jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e";
+        jsonurl = "https://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e";
 System.out.println(jsonurl);
         scheduleList1 = new ArrayList<>();
         hashMap = new HashMap<>();
@@ -95,10 +100,15 @@ System.out.println(jsonurl);
             System.out.println(jsonurl);
             try {
                 URL url;
-                HttpURLConnection httpURLConnection = null;
+
                 try {
                     url = new URL(jsonurl);
-                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                    URLConnection httpURLConnection = url.openConnection();
+                    if (httpURLConnection instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                        httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                        httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                    }
 
 
                     InputStream inputStream = httpURLConnection.getInputStream();
@@ -115,10 +125,7 @@ System.out.println(jsonurl);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                finally {
-                    if(httpURLConnection !=null )
-                        httpURLConnection.disconnect();
-                }
+
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -136,7 +143,7 @@ System.out.println(jsonurl);
                     System.out.println(exerciseID);
 
                      //jsonurl2 ="http://borovik.fun:8080/homework/getByExerciseId?exerciseId=" + exerciseID;
-                    jsonurl2 ="http://borovik.fun:8080/homework/getByExerciseId?exerciseId=2b065ca7-6dc0-4ea7-bb68-a0b46d2baaac";
+                    jsonurl2 ="https://borovik.fun/homework/getByExerciseId?exerciseId=2b065ca7-6dc0-4ea7-bb68-a0b46d2baaac";
 
                     hw_teacher_.GetHWFromUsers getShedule = new  hw_teacher_.GetHWFromUsers();
                     getShedule.execute();

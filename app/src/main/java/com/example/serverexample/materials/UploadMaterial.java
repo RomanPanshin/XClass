@@ -25,7 +25,7 @@ public class UploadMaterial extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         try {
 
-            String upLoadServerUriWithFile = "http://borovik.fun:8080/additional/upload";
+            String upLoadServerUriWithFile = "https://borovik.fun/additional/upload";
 
             pathString = UploadMaterials.pathStr;
             File file = file = new File(pathString);

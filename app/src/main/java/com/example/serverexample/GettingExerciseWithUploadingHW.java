@@ -8,6 +8,7 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.SSLCertificateSocketFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -27,6 +28,7 @@ import com.example.serverexample.exerciseorhomework.UploadHWAsync;
 import com.example.serverexample.video.CustomFragmentStudent;
 import com.example.serverexample.video.VideoActivity;
 
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,10 +43,13 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import static android.app.Activity.RESULT_OK;
 import static com.example.serverexample.MainActivity.context;
@@ -80,9 +85,9 @@ public class GettingExerciseWithUploadingHW extends Fragment {
 
 
        // jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=" + dateText + "&lessonId=" + idLESSON;
-        jsonurl = "http://borovik.fun:8080/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e" ;
+        jsonurl = "https://borovik.fun/GetExerciseBySimpleDateAndLessonId?simpleDate=21.01.2021&lessonId=701b0192-bc36-410f-b911-c27de261397e" ;
         //jsonurl2 = "http://borovik.fun:8080/lessons/topic/get?lessonId=" + idLESSON + "&simpleDate=" + dateText;
-        jsonurl2 = "http://borovik.fun:8080/lessons/topic/get?lessonId=91898941-cc42-4275-ad3b-dbdcd51db21a&simpleDate=15.02.2021";
+        jsonurl2 = "https://borovik.fun/lessons/topic/get?lessonId=91898941-cc42-4275-ad3b-dbdcd51db21a&simpleDate=15.02.2021";
 
         System.out.println(jsonurl2);
         homeTask = v.findViewById(R.id.textViewHomeTask);
@@ -93,7 +98,7 @@ public class GettingExerciseWithUploadingHW extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new
-                        Intent(Intent.ACTION_VIEW, Uri.parse("http://borovik.fun:8080/r/c63f485e-7cb0-4129-a47b-0f992d3cedf6.png"));
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://borovik.fun/r/c63f485e-7cb0-4129-a47b-0f992d3cedf6.png"));
                 startActivity(browserIntent);
             }
         });
@@ -358,10 +363,15 @@ System.out.println(idLESSON + " " +  description);
             String current = "";
             try {
                 URL url;
-                HttpURLConnection httpURLConnection = null;
+
                 try {
                     url = new URL(jsonurl);
-                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                    URLConnection httpURLConnection = url.openConnection();
+                    if (httpURLConnection instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                        httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                        httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                    }
 
 
                     InputStream inputStream = httpURLConnection.getInputStream();
@@ -379,10 +389,7 @@ System.out.println(idLESSON + " " +  description);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                finally {
-                    if(httpURLConnection !=null )
-                        httpURLConnection.disconnect();
-                }
+
             }
             catch (Exception e){
                 e.printStackTrace();

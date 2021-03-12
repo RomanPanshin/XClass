@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
-       // connectButton =  findViewById(R.id.connect);
+
         postButton =  findViewById(R.id.postbutton);
         emailTxt =  findViewById(R.id.email);
         passwordTxt =  findViewById(R.id.password);

@@ -1,13 +1,22 @@
 package com.example.serverexample.exerciseorhomework;
 
+import android.net.SSLCertificateSocketFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 
 import com.example.serverexample.GettingExerciseWithUploadingHW;
+import com.example.serverexample.Multi;
 import com.example.serverexample.MultipartUtility;
 import com.example.serverexample.Person;
 
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
+
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -25,30 +34,30 @@ final String LOG_TAG = "myLogs";
 protected String doInBackground(String... strings) {
         try {
 
-        String upLoadServerUriWithFile = "http://borovik.fun:8080/homework/UploadHomeworkWithFile";
-        String upLoadServerUriWithoutFile = "http://borovik.fun:8080/homework/UploadHomework";
+        String upLoadServerUriWithFile = "https://borovik.fun/homework/UploadHomeworkWithFile";
+        String upLoadServerUriWithoutFile = "https://borovik.fun/homework/UploadHomework";
 
-        pathString = GettingExerciseWithUploadingHW.pathStr;
-        File file = file = new File(pathString);
+            pathString = GettingExerciseWithUploadingHW.pathStr;
+            File file = file = new File(pathString);
 
-        try {
+            try {
 
-        MultipartUtility multipart = new MultipartUtility(upLoadServerUriWithFile, "UTF-8");
+                MultipartUtility multipart = new MultipartUtility(upLoadServerUriWithFile, "UTF-8");
 
-        if(GettingExerciseWithUploadingHW.pathStr != null){
-        MediaType MEDIA_TYPE = MediaType.parse(GettingExerciseWithUploadingHW.mimeType);
-        RequestBody requestBody=new MultipartBody.Builder().setType(MultipartBody.FORM)
-        .addFormDataPart("file", file.getName(),  RequestBody.create(MEDIA_TYPE, file))
-        .addFormDataPart("UID", Person.uId)
-         .addFormDataPart("description",GettingExerciseWithUploadingHW.description)
-        .addFormDataPart("exerciseId",GettingExerciseWithUploadingHW.idLESSON)
+                if(GettingExerciseWithUploadingHW.pathStr != null){
+                    MediaType MEDIA_TYPE = MediaType.parse(GettingExerciseWithUploadingHW.mimeType);
+                    RequestBody requestBody=new MultipartBody.Builder().setType(MultipartBody.FORM)
+                            .addFormDataPart("file", file.getName(),  RequestBody.create(MEDIA_TYPE, file))
+                            .addFormDataPart("UID", Person.uId)
+                            .addFormDataPart("description",GettingExerciseWithUploadingHW.description)
+                            .addFormDataPart("exerciseId",GettingExerciseWithUploadingHW.idLESSON)
 
-        .build();
-        Request request=new Request.Builder()
-        .url(upLoadServerUriWithFile)
-        .post(requestBody)
-        .build();
-final OkHttpClient client = new OkHttpClient();
+                            .build();
+                    Request request=new Request.Builder()
+                            .url(upLoadServerUriWithFile)
+                            .post(requestBody)
+                            .build();
+                    final OkHttpClient client = new OkHttpClient();
         client.newCall(request).enqueue(new Callback() {
 
             @Override

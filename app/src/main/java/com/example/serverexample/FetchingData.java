@@ -17,7 +17,7 @@ import java.net.URL;
 public class FetchingData extends AsyncTask<Void, Void, Void> {
     String data = "";
     String parsedData = "";
-    private static final String adress = "http://borovik.fun:8080/auth";
+    private static final String adress = "https://borovik.fun/auth";
     @Override
     protected Void doInBackground(Void... voids) {
         try {

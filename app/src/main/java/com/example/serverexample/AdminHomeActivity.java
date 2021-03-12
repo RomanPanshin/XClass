@@ -1,6 +1,7 @@
 package com.example.serverexample;
 
 import android.content.Intent;
+import android.net.SSLCertificateSocketFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.serverexample.materials.MaterialReacherFragment;
 import com.example.serverexample.materials.MaterialTeacherFragment;
 
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,8 +28,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class AdminHomeActivity extends AppCompatActivity {
     String jsonurl, data, idClass, classId;
@@ -41,7 +46,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adminhome);
 
-        jsonurl = "http://borovik.fun:8080/classes/getAll";
+        jsonurl = "https://borovik.fun/classes/getAll";
 
 
 
@@ -61,10 +66,15 @@ public class AdminHomeActivity extends AppCompatActivity {
             String current = "";
             try {
                 URL url;
-                HttpURLConnection httpURLConnection = null;
+
                 try {
                     url = new URL(jsonurl);
-                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                    URLConnection httpURLConnection = url.openConnection();
+                    if (httpURLConnection instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                        httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                        httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                    }
 
 
                     InputStream inputStream = httpURLConnection.getInputStream();
@@ -83,10 +93,7 @@ public class AdminHomeActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                finally {
-                    if(httpURLConnection !=null )
-                        httpURLConnection.disconnect();
-                }
+
             }
             catch (Exception e){
                 e.printStackTrace();

@@ -578,14 +578,14 @@ public String roomeditText = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
                 cancelConnectDialogClickListener(),
                 this);
         connectDialog.show();*/
-        EditText roomEditText = new EditText(this);
+       // EditText roomEditText = new EditText(this);
        // roomEditText.setText(CustomFragmentStudent.lessonID);
-        connectDialog = Dialog.createConnectDialog(roomEditText,
+      /*  connectDialog = Dialog.createConnectDialog(roomEditText,
                 connectClickListener(roomEditText),
                 cancelConnectDialogClickListener(),
                 this);
         connectDialog.show();
-
+*/
     }
 
     /*
@@ -1031,7 +1031,7 @@ public String roomeditText = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
     }
 
     private View.OnClickListener connectActionClickListener() {
-        return v -> showConnectDialog();
+        return v -> connectToRoom(CustomDialogFragment.lessonID);
     }
 
     private DialogInterface.OnClickListener cancelConnectDialogClickListener() {

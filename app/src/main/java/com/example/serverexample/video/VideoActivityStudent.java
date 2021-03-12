@@ -1097,7 +1097,7 @@ public class VideoActivityStudent extends AppCompatActivity {
     private void retrieveAccessTokenfromServer() {
 
 
-        this.accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM3NTYxMTYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzc1OTcxNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiUVIwSzdjZnZreGFEeGZIN1FkRGxuQWo0VnFkMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.SzDfDVIU_Lzwn_d0ovxTs1ZobKRkR1c0C0BatHfn4t0";
+        this.accessToken = CustomFragmentStudent.token;
         System.out.println(accessToken);
 
     }

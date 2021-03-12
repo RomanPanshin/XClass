@@ -33,8 +33,8 @@ public class UploadFileAsync extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         try {
 
-            String upLoadServerUriWithFile = "http://borovik.fun:8080/UploadExerciseWithFile";
-            String upLoadServerUriWithoutFile = "http://borovik.fun:8080/UploadExercise";
+            String upLoadServerUriWithFile = "https://borovik.fun/UploadExerciseWithFile";
+            String upLoadServerUriWithoutFile = "https://borovik.fun/UploadExercise";
            // Date currentDate = new Date();
             //DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
             //String dateText = dateFormat.format(currentDate);

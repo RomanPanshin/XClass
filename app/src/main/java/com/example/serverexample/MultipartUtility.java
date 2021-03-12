@@ -1,5 +1,9 @@
 package com.example.serverexample;
 
+import android.net.SSLCertificateSocketFactory;
+
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
+
 import java.util.List;
 
 import java.io.BufferedReader;
@@ -16,6 +20,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * This utility class provides an abstraction layer for sending multipart HTTP
@@ -48,18 +54,23 @@ public class MultipartUtility {
 
         URL url = new URL(requestURL);
         httpConn = (HttpURLConnection) url.openConnection();
-        httpConn.setUseCaches(false);
-        httpConn.setDoOutput(true); // indicates POST method
-        httpConn.setDoInput(true);
-        httpConn.setRequestProperty("Content-Type",
-                "multipart/form-data; boundary=" + boundary);
-        httpConn.setRequestProperty("User-Agent", "CodeJava Agent");
-        httpConn.setRequestProperty("Test", "Bonjour");
-        outputStream = httpConn.getOutputStream();
-        writer = new PrintWriter(new OutputStreamWriter(outputStream, charset),
-                true);
-    }
+        if (httpConn instanceof HttpsURLConnection) {
+            HttpsURLConnection httpsConn = (HttpsURLConnection) httpConn;
+            httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+            httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+        }
+            httpConn.setUseCaches(false);
+            httpConn.setDoOutput(true); // indicates POST method
+            httpConn.setDoInput(true);
+            httpConn.setRequestProperty("Content-Type",
+                    "multipart/form-data; boundary=" + boundary);
+            httpConn.setRequestProperty("User-Agent", "CodeJava Agent");
+            httpConn.setRequestProperty("Test", "Bonjour");
+            outputStream = httpConn.getOutputStream();
+            writer = new PrintWriter(new OutputStreamWriter(outputStream, charset),
+                    true);
 
+    }
     /**
      * Adds a form field to the request
      *

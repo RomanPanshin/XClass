@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.SSLCertificateSocketFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -19,6 +20,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
@@ -41,6 +43,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.net.ssl.HttpsURLConnection;
+
 public class CustomFragmentStudent extends DialogFragment {
 
     String  uID="", simpleDate="", classId="",  jsonurl2="", result="", data="";
@@ -56,14 +60,13 @@ public class CustomFragmentStudent extends DialogFragment {
 
 
 
-            lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
-           // jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=" + lessonID;
-            jsonurl2 = "http://borovik.fun:8080/twilio/getAccessToken?UID=" + uID + "&lessonId=c34f267d-77ce-48d2-b16e-c10ca2a8afef";
+            //lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
 
-            System.out.println(lessonID + " " + uID + " " + simpleDate + " " + classId);
 
-           // CustomFragmentStudent.GetAccessToken getAccessToken = new CustomFragmentStudent.GetAccessToken();
-           // getAccessToken.execute();
+            jsonurl2 = "https://borovik.fun/token/?identity=" + Person.name + "&room=" + lessonID;
+
+           CustomFragmentStudent.GetAccessToken getAccessToken = new CustomFragmentStudent.GetAccessToken();
+          getAccessToken.execute();
         }
 
     }
@@ -80,7 +83,7 @@ public class CustomFragmentStudent extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTM3NTYxMTYiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxMzc1OTcxNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiUVIwSzdjZnZreGFEeGZIN1FkRGxuQWo0VnFkMiIsInZpZGVvIjp7InJvb20iOiIzOGViM2NiYy1lYzVlLTRjYmMtOTJkYi00NzMzZmExNmE1MjUifX19.SzDfDVIU_Lzwn_d0ovxTs1ZobKRkR1c0C0BatHfn4t0";
+//token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTU1ODU1ODgiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxNTU4OTE4OCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiXHUwNDE0XHUwNDMwXHUwNDNkXHUwNDM4XHUwNDNiXHUwNDMwIiwidmlkZW8iOnsicm9vbSI6ImMzNGYyNjdkLTc3Y2UtNDhkMi1iMTZlLWMxMGNhMmE4YWZlZiJ9fX0.NOdv1EBm3_1nmaC9I0ex8QyXOyylNBuLd2sOib7B9D0";
                         if(token!=""){
                             Intent intent = new Intent(getContext(), VideoActivityStudent.class);
                             startActivity(intent);}
@@ -106,6 +109,11 @@ token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJ
                     url = new URL(jsonurl2);
                     httpURLConnection = (HttpURLConnection) url.openConnection();
 
+                    if (httpURLConnection instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                        httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                        httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                    }
 
                     InputStream inputStream = httpURLConnection.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -133,17 +141,8 @@ token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJ
         }
         @Override
         protected void onPostExecute(String s) {
-            try {
-                JSONObject jsonObject = new JSONObject(s);
-                if(jsonObject.optString("code").contentEquals("Success")){
-
-                    token = jsonObject.optString("result");
-                    System.out.println(token);
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            System.out.println(s);
+            token = s;
         }
 
 

@@ -3,42 +3,146 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-
+    android:layout_height="200dp"
+android:id="@+id/testlist"
     >
 
 
+    <View
+        android:id="@+id/back1"
+
+        android:layout_width="323dp"
+
+        android:layout_height="186dp"
+
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/backwithshadow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.384" />
+
+
     <EditText
-        android:id="@+id/listViewLesson"
-        android:layout_width="410dp"
-        android:layout_height="44dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:id="@+id/qua1"
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+
+        android:layout_marginBottom="156dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
         android:hint="Введите вопрос"
-        android:textAlignment="textStart"
-        android:textColor="#3F3D56"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.314" />
+
+    <ListView
+        android:id="@+id/listViewAns"
+        android:layout_width="293dp"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.786" />
+
+    <!--<EditText
+
+        android:id="@+id/ans3"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.791" />
 
     <EditText
 
-        android:layout_width="413dp"
-        android:layout_height="44dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:hint="Введите ответ"
-        android:textAlignment="textStart"
-        android:textColor="#3F3D56"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:id="@+id/ans2"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.803" />
+        app:layout_constraintVertical_bias="0.525" />
+
+
+    <EditText
+
+        android:id="@+id/ans1"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259" />-->
+
+    <!--<CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="37dp"
+        android:layout_height="42dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="36dp"
+        android:layout_height="42dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="36dp"
+        android:layout_height="42dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.791" />-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

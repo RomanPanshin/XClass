@@ -25,7 +25,7 @@ public class UploadTopic extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         try {
 
-            String upLoadServerUriWithFile = "http://borovik.fun:8080/lesson/topic/upload";
+            String upLoadServerUriWithFile = "https://borovik.fun/lesson/topic/upload";
 
 
             try {

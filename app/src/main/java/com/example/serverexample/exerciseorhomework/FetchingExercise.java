@@ -27,7 +27,7 @@ public class FetchingExercise extends AsyncTask<String, Void, String> {
     public String response, resutltext="";
 
     JSONObject structure;
-    private static final String url = "http://borovik.fun:8080/auth";
+    private static final String url = "https://borovik.fun/auth";
     @Override
     protected String doInBackground(String... strings) {
 

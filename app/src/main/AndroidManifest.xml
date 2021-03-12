@@ -27,15 +27,19 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+
         android:usesCleartextTraffic="true">
+
         <activity android:name=".video.InfoForAdmin"></activity>
         <activity
             android:name=".video.Attendance"
             android:label="@string/title_activity_attendance"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".StudentActivityHome"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -43,7 +47,8 @@
 
         <activity
             android:name=".exerciseorhomework.LoadingScreen"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,7 +57,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".AdminHomeActivity"
             android:screenOrientation="portrait" />
@@ -68,7 +74,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".TeacherActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".video.SettingsActivity"
             android:label="@string/title_activity_settings"

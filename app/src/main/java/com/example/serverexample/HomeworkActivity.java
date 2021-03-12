@@ -55,6 +55,7 @@ public class HomeworkActivity extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             id = getArguments().getString("id");
+            lessonID = getArguments().getString("idLesson");
         }
     }
     @Override

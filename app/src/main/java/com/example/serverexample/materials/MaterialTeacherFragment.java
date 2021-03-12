@@ -1,5 +1,6 @@
 package com.example.serverexample.materials;
 
+import android.net.SSLCertificateSocketFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import android.widget.SimpleAdapter;
 
 import com.example.serverexample.R;
 
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,8 +29,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.net.ssl.HttpsURLConnection;
 
 
 public class MaterialTeacherFragment extends Fragment {
@@ -49,7 +54,7 @@ public class MaterialTeacherFragment extends Fragment {
 
         listView = v.findViewById(R.id.listviewallAllclasses);
 
-        jsonurl = "http://borovik.fun:8080/classes/getAll";
+        jsonurl = "https://borovik.fun/classes/getAll";
 
         System.out.println(jsonurl);
         scheduleList = new ArrayList<>();
@@ -66,10 +71,15 @@ public class MaterialTeacherFragment extends Fragment {
             String current = "";
             try {
                 URL url;
-                HttpURLConnection httpURLConnection = null;
+
                 try {
                     url = new URL(jsonurl);
-                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                    URLConnection httpURLConnection = url.openConnection();
+                    if (httpURLConnection instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                        httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                        httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                    }
 
 
                     InputStream inputStream = httpURLConnection.getInputStream();
@@ -86,10 +96,7 @@ public class MaterialTeacherFragment extends Fragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                finally {
-                    if(httpURLConnection !=null )
-                        httpURLConnection.disconnect();
-                }
+
             }
             catch (Exception e){
                 e.printStackTrace();

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.net.SSLCertificateSocketFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.os.AsyncTask;
@@ -18,6 +19,9 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,16 +30,23 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.X509TrustManager;
 
 public class StudentActivity extends Fragment {
     HashMap<String, String> schedule;
@@ -82,7 +93,7 @@ public class StudentActivity extends Fragment {
 
         scheduleList = new ArrayList<>();
         weekday_name = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());
-        jsonurl = "http://borovik.fun:8080/lessons/getSchedule?classId=" + Person.idclass + "&dayOfWeek=" + weekday_name;
+        jsonurl = "https://borovik.fun/lessons/getSchedule?classId=" + Person.idclass + "&dayOfWeek=" + weekday_name;
 
         System.out.println(jsonurl);
 
@@ -105,22 +116,50 @@ public class StudentActivity extends Fragment {
             case ("Sunday"): sun.setBackgroundResource(R.drawable.blueround); break;
         }
        return v;
+
+
+    }
+
+    private void trustEveryone() {
+        try {
+            HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier(){
+                public boolean verify(String hostname, SSLSession session) {
+                    return true;
+                }});
+            SSLContext context = SSLContext.getInstance("TLS");
+            context.init(null, new X509TrustManager[]{new X509TrustManager(){
+                public void checkClientTrusted(X509Certificate[] chain,
+                                               String authType) throws CertificateException {}
+                public void checkServerTrusted(X509Certificate[] chain,
+                                               String authType) throws CertificateException {}
+                public X509Certificate[] getAcceptedIssuers() {
+                    return new X509Certificate[0];
+                }}}, new SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(
+                    context.getSocketFactory());
+        } catch (Exception e) { // should never happen
+            e.printStackTrace();
+        }
     }
 
 
-public class GetShedule extends AsyncTask<String, String, String>{
+    public class GetShedule extends AsyncTask<String, String, String>{
 
     @Override
     protected String doInBackground(String... strings) {
         String current = "";
         try {
             URL url;
-            HttpURLConnection httpURLConnection = null;
+
             try {
                 url = new URL(jsonurl);
-                httpURLConnection = (HttpURLConnection) url.openConnection();
 
-
+                URLConnection httpURLConnection = url.openConnection();
+                if (httpURLConnection instanceof HttpsURLConnection) {
+                    HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                    httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                    httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                }
                 InputStream inputStream = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -135,10 +174,7 @@ public class GetShedule extends AsyncTask<String, String, String>{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            finally {
-                if(httpURLConnection !=null )
-                    httpURLConnection.disconnect();
-            }
+
         }
         catch (Exception e){
             e.printStackTrace();

@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <View
         android:id="@+id/view4"
         android:layout_width="387dp"
@@ -153,8 +152,145 @@
         app:layout_constraintStart_toEndOf="@+id/createTest"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.234" />
+    <EditText
+        android:id="@+id/qua12"
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите вопрос"
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.314" />
+    <EditText
+
+        android:id="@+id/ans1"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.377" />
 
     <EditText
+
+        android:id="@+id/ans2"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43" />
+
+    <EditText
+
+        android:id="@+id/ans3"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483" />
+    <View
+        android:id="@+id/back1"
+
+        android:layout_width="323dp"
+
+        android:visibility="invisible"
+        android:layout_height="186dp"
+        android:background="@drawable/backwithshadow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.384" />
+
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="37dp"
+        android:layout_height="42dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="36dp"
+        android:layout_height="42dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="36dp"
+        android:layout_height="42dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483" />
+    <!-- <ListView
+         android:id="@+id/listViewTEST"
+         android:layout_width="324dp"
+         android:layout_height="383dp"
+         android:divider="#00000000"
+         android:dividerHeight="10dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.494"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.568" />-->
+
+
+    <!--<EditText
         android:id="@+id/qua1"
         android:layout_width="298dp"
         android:layout_height="32dp"
@@ -321,9 +457,9 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713" />
+        app:layout_constraintVertical_bias="0.713" />-->
 
-    <View
+   <!-- <View
         android:id="@+id/back1"
 
         android:layout_width="323dp"
@@ -445,6 +581,6 @@
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintVertical_bias="0.714" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
