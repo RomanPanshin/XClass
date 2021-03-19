@@ -43,17 +43,9 @@ android:id="@+id/testlist"
         app:layout_constraintTop_toTopOf="@+id/view6"
         app:layout_constraintVertical_bias="0.314" />
 
-    <ListView
-        android:id="@+id/listViewAns"
-        android:layout_width="293dp"
-        android:layout_height="125dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.786" />
 
-    <!--<EditText
+
+  <EditText
 
         android:id="@+id/ans3"
         android:layout_width="172dp"
@@ -106,9 +98,9 @@ android:id="@+id/testlist"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259" />-->
+        app:layout_constraintVertical_bias="0.259" />
 
-    <!--<CheckBox
+   <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="37dp"
         android:layout_height="42dp"
@@ -142,7 +134,7 @@ android:id="@+id/testlist"
         app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791" />-->
+        app:layout_constraintVertical_bias="0.791" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

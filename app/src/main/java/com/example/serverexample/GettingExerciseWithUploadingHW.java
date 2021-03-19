@@ -64,7 +64,7 @@ public class GettingExerciseWithUploadingHW extends Fragment {
     EditText editText;
     String data, fileurl, data2;
     //TextView nameOfLesson;
-
+    JSONObject structure;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -403,22 +403,20 @@ System.out.println(idLESSON + " " +  description);
                     JSONObject jsonObject = new JSONObject(s);
                     if (jsonObject.optString("code").contentEquals("Success")) {
 
-                        JSONArray jsonArray = jsonObject.getJSONArray("result");
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        structure = (JSONObject) jsonObject.get("result");
+                        description = structure.get("description").toString();
+                        homeTask.setText(description);
 
-
-                            description = jsonObject1.getString("description");
-                            homeTask.setText(description);
-
-                            if (jsonObject1.getString("fileURL").equals("null")) {
-                                download.setVisibility(View.INVISIBLE);
-                            } else {
-                                fileurl = jsonObject1.getString("fileURL");
-                            }
-
-
+                        if (structure.getString("fileURL").equals("null")) {
+                            download.setVisibility(View.INVISIBLE);
+                        } else {
+                            fileurl = structure.getString("fileURL");
                         }
+
+
+
+
+
                     }
                     if (jsonObject.optString("code").contentEquals("Error")) {
 
@@ -445,6 +443,11 @@ System.out.println(idLESSON + " " +  description);
                     url = new URL(jsonurl2);
                     httpURLConnection = (HttpURLConnection) url.openConnection();
 
+                    if (httpURLConnection instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) httpURLConnection;
+                        httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
+                        httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
+                    }
 
                     InputStream inputStream = httpURLConnection.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

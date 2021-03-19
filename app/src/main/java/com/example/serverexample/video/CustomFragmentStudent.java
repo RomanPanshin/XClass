@@ -60,13 +60,14 @@ public class CustomFragmentStudent extends DialogFragment {
 
 
 
-            //lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
+           lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
 
 
             jsonurl2 = "https://borovik.fun/token/?identity=" + Person.name + "&room=" + lessonID;
 
-           CustomFragmentStudent.GetAccessToken getAccessToken = new CustomFragmentStudent.GetAccessToken();
-          getAccessToken.execute();
+           //CustomDialogFragment.GetAccessToken getAccessToken = new CustomDialogFragment.GetAccessToken();
+         // getAccessToken.execute();
+          System.out.println("blyat");
         }
 
     }
@@ -78,13 +79,13 @@ public class CustomFragmentStudent extends DialogFragment {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         return builder.setTitle("Урок")
                 .setIcon(R.drawable.videocall2)
-                .setMessage("Начать видео-урок?")
+                .setMessage("Подключиться к онлайн-уроку?")
                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        System.out.println("blyat");
 //token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3LTE2MTU1ODU1ODgiLCJpc3MiOiJTSzlkNDljZGI1Y2FjYTUxMzM1YTVkYTQzMDMzODY4MmM3Iiwic3ViIjoiQUNhOTQ4OWU4OWJlYTJmZDZhMTQzYjY0ZGVmMWNmMDFmNyIsImV4cCI6MTYxNTU4OTE4OCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiXHUwNDE0XHUwNDMwXHUwNDNkXHUwNDM4XHUwNDNiXHUwNDMwIiwidmlkZW8iOnsicm9vbSI6ImMzNGYyNjdkLTc3Y2UtNDhkMi1iMTZlLWMxMGNhMmE4YWZlZiJ9fX0.NOdv1EBm3_1nmaC9I0ex8QyXOyylNBuLd2sOib7B9D0";
-                        if(token!=""){
+                        if(token!="" && token!=null){
                             Intent intent = new Intent(getContext(), VideoActivityStudent.class);
                             startActivity(intent);}
 
@@ -96,7 +97,7 @@ public class CustomFragmentStudent extends DialogFragment {
 
 
 
-    public class GetAccessToken extends AsyncTask<String, String, String> {
+    public class GetAccessTokenStudent extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -114,14 +115,13 @@ public class CustomFragmentStudent extends DialogFragment {
                         httpsConn.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
                         httpsConn.setHostnameVerifier(new AllowAllHostnameVerifier());
                     }
-
                     InputStream inputStream = httpURLConnection.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-                    while(current != null){
-                        current = bufferedReader.readLine();
-                        data = data + current;
-                    }
+
+                    current = bufferedReader.readLine();
+                    data = current;
+
                     return data;
 
                 } catch (MalformedURLException e) {

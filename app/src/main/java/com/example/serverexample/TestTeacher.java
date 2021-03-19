@@ -55,18 +55,26 @@ public class TestTeacher extends Fragment {
 
         lessonId = HomeworkActivity.lessonID;
 
-        qua1 = v.findViewById(R.id.qua12);
+        /*qua1 = v.findViewById(R.id.qua12);
+        qua2 = v.findViewById(R.id.qua22);
 
         ans1 = v.findViewById(R.id.ans1);
         ans2 = v.findViewById(R.id.ans2);
         ans3 = v.findViewById(R.id.ans3);
+        ans4 = v.findViewById(R.id.ans4);
+        ans5 = v.findViewById(R.id.ans5);
+        ans6 = v.findViewById(R.id.ans6);
         back1 = v.findViewById(R.id.back1);
+        back2 = v.findViewById(R.id.back2);
 
-        checkBox1 = v.findViewById(R.id.checkBox1);
-        checkBox2 = v.findViewById(R.id.checkBox2);
-        checkBox3 = v.findViewById(R.id.checkBox3);
+        checkBox1 = v.findViewById(R.id.checkBox4);
+        checkBox2 = v.findViewById(R.id.checkBox41);
+        checkBox3 = v.findViewById(R.id.checkBox42);
+        checkBox4 = v.findViewById(R.id.checkBox1);
+        checkBox5 = v.findViewById(R.id.checkBox5);
+        checkBox6 = v.findViewById(R.id.checkBox6);*/
 
-       // lv =  v.findViewById(R.id.listViewTEST);
+        lv =  v.findViewById(R.id.listViewTEST);
        // lv1 =  v.findViewById(R.id.listViewAns);
         homework = v.findViewById(R.id.homework);
         save = v.findViewById(R.id.addFile);
@@ -85,7 +93,7 @@ public class TestTeacher extends Fragment {
             @Override
             public void onClick(View v) {
                 i++;
-                if(i==1){
+              /*  if(i==1){
                     qua1.setVisibility(View.VISIBLE);
                     ans1.setVisibility(View.VISIBLE);
                     ans3.setVisibility(View.VISIBLE);
@@ -97,10 +105,20 @@ public class TestTeacher extends Fragment {
 
 
                 }
-               /* schedule.put("Question", question);
-                schedule.put("Answer1", answer1);
-                schedule.put("Answer2", answer2);
-                schedule.put("Answer3", answer3);
+                if(i==2){
+                    qua2.setVisibility(View.VISIBLE);
+                    ans4.setVisibility(View.VISIBLE);
+                    ans5.setVisibility(View.VISIBLE);
+                    ans6.setVisibility(View.VISIBLE);
+                    checkBox4.setVisibility(View.VISIBLE);
+                    checkBox5.setVisibility(View.VISIBLE);
+                    checkBox6.setVisibility(View.VISIBLE);
+                    back2.setVisibility(View.VISIBLE);
+                }*/
+                schedule.put("Question", "question");
+                schedule.put("Answer1", "K");
+                schedule.put("Answer2", "k");
+                schedule.put("Answer3", "j");
                 scheduleList.add(schedule);
                     ListAdapter adapter = new SimpleAdapter( getActivity(),
                             scheduleList,
@@ -128,14 +146,10 @@ public class TestTeacher extends Fragment {
 
 
 
-                   /* byte []bytesdes  = qua1.getText().toString().getBytes(Charset.forName("CP1251"));
-                    String value = new String(bytesdes, "UTF-8");
-                    questionString = value;*/
 
-                    questionString =  URLEncoder.encode(qua1.getText().toString(), "CP1251");
+
+                 /* questionString =  URLEncoder.encode(qua1.getText().toString(), "CP1251");
                     System.out.println(questionString);
-
-
 
 
                     answer1  =  URLEncoder.encode(ans1.getText().toString(), "CP1251");
@@ -165,8 +179,9 @@ public class TestTeacher extends Fragment {
 
 
                     UploadingTest uploadingTest = new UploadingTest();
-                    uploadingTest.execute();
+                    uploadingTest.execute();*/
 
+                    Toast.makeText(getContext(), "Тест добавлен", Toast.LENGTH_SHORT).show();
                     Fragment homeworkFragment = new HomeworkActivity();
                     getFragmentManager().beginTransaction().replace(R.id.container1, homeworkFragment).commit();
 
@@ -174,7 +189,7 @@ public class TestTeacher extends Fragment {
 
 
 
-                } catch (UnsupportedEncodingException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -206,7 +221,7 @@ public class TestTeacher extends Fragment {
                        // selection.setText(unchecked);
                     }
                 }*/
-                Toast.makeText(getContext(), "Тест добавлен", Toast.LENGTH_SHORT).show();
+
             }
         });
 

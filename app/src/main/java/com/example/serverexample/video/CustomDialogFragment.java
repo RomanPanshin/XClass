@@ -79,18 +79,21 @@ public  static String  token="", lessonID="";
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
            simpleDate = dateFormat.format(currentDate);
 
-            //lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
+            lessonID = "c34f267d-77ce-48d2-b16e-c10ca2a8afef";
 
                 jsonurl = "https://borovik.fun/twilio/lesson/start";
                 jsonurl2 = "https://borovik.fun/token/?identity=" + "xxx" + "&room=" + lessonID;
 
             System.out.println(lessonID + " " + uID + " " + simpleDate + " " + classId);
 
+
+
             CustomDialogFragment.GetAccessToken getAccessToken = new CustomDialogFragment.GetAccessToken();
             getAccessToken.execute();
         }
 
     }
+
 
 
     @NonNull
@@ -106,7 +109,7 @@ public  static String  token="", lessonID="";
                        GetStart getStart = new GetStart();
                         getStart.execute();
 
-                        if(token!=""){
+                        if(token!="" && token!=null){
                        Intent intent = new Intent(getContext(), VideoActivity.class);
                         startActivity(intent);
                         }
@@ -158,7 +161,7 @@ public  static String  token="", lessonID="";
         }
     }
 
-    public class GetAccessToken extends AsyncTask<String, String, String> {
+   public class GetAccessToken extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -179,10 +182,10 @@ public  static String  token="", lessonID="";
                     InputStream inputStream = httpURLConnection.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-                    while(current != null){
+
                         current = bufferedReader.readLine();
-                        data = data + current;
-                    }
+                        data = current;
+
                     return data;
 
                 } catch (MalformedURLException e) {

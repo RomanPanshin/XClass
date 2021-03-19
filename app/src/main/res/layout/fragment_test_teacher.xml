@@ -152,6 +152,135 @@
         app:layout_constraintStart_toEndOf="@+id/createTest"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.234" />
+
+   <!-- <EditText
+        android:id="@+id/qua22"
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите вопрос"
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.637"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.544" />
+
+    <EditText
+
+        android:id="@+id/ans4"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591" />
+
+    <EditText
+
+        android:id="@+id/ans5"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.644" />
+
+
+    <EditText
+
+        android:id="@+id/ans6"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:background="@color/without"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="Введите ответ "
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.697" />
+
+    <View
+        android:id="@+id/back2"
+
+        android:layout_width="323dp"
+
+        android:layout_height="186dp"
+        android:background="@drawable/backwithshadow"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.695" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="37dp"
+        android:layout_height="42dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <CheckBox
+        android:id="@+id/checkBox41"
+        android:layout_width="37dp"
+        android:layout_height="42dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428" />
+
+
+    <CheckBox
+        android:id="@+id/checkBox42"
+        android:layout_width="37dp"
+        android:layout_height="42dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481" />
+
     <EditText
         android:id="@+id/qua12"
         android:layout_width="298dp"
@@ -225,24 +354,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.483" />
+
+
     <View
         android:id="@+id/back1"
 
         android:layout_width="323dp"
 
-        android:visibility="invisible"
         android:layout_height="186dp"
         android:background="@drawable/backwithshadow"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view6"
-        app:layout_constraintVertical_bias="0.384" />
-
+        app:layout_constraintVertical_bias="0.389" />
 
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/checkBox4"
         android:layout_width="37dp"
         android:layout_height="42dp"
         android:visibility="invisible"
@@ -254,7 +384,7 @@
         app:layout_constraintVertical_bias="0.375" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBox5"
         android:layout_width="36dp"
         android:layout_height="42dp"
         android:visibility="invisible"
@@ -263,10 +393,10 @@
         app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
+        app:layout_constraintVertical_bias="0.644" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/checkBox6"
         android:layout_width="36dp"
         android:layout_height="42dp"
         android:visibility="invisible"
@@ -275,8 +405,8 @@
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
-    <!-- <ListView
+        app:layout_constraintVertical_bias="0.697" />-->
+     <ListView
          android:id="@+id/listViewTEST"
          android:layout_width="324dp"
          android:layout_height="383dp"
@@ -287,7 +417,7 @@
          app:layout_constraintHorizontal_bias="0.494"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.568" />-->
+         app:layout_constraintVertical_bias="0.568" />
 
 
     <!--<EditText
