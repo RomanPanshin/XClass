@@ -97,7 +97,7 @@ public class StudentActivity extends Fragment {
 
         System.out.println(jsonurl);
 
-       if(!weekday_name.equals("Saturday") && !weekday_name.equals("Sunday")){
+       if(!weekday_name.equals("Sunday")){
         GetShedule getShedule = new GetShedule();
         getShedule.execute();
        }else{

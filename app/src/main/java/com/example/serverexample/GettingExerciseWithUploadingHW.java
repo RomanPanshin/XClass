@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.serverexample.exerciseorhomework.UploadHWAsync;
+import com.example.serverexample.video.CustomDialog;
 import com.example.serverexample.video.CustomFragmentStudent;
 import com.example.serverexample.video.VideoActivity;
 
@@ -129,7 +130,7 @@ public class GettingExerciseWithUploadingHW extends Fragment {
             @Override
             public void onClick(View v) {
 
-                CustomFragmentStudent customFragmentStudent = new CustomFragmentStudent();
+                CustomDialog customFragmentStudent = new CustomDialog();
                 customFragmentStudent.show(getActivity().getSupportFragmentManager(), "custom");
 
 

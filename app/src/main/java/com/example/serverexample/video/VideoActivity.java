@@ -1098,7 +1098,7 @@ public String roomeditText = "38eb3cbc-ec5e-4cbc-92db-4733fa16a525";
     private void retrieveAccessTokenfromServer() {
 
 
-        this.accessToken = CustomDialogFragment.token;
+        this.accessToken = CustomDialog.token;
         System.out.println(accessToken);
 
     }

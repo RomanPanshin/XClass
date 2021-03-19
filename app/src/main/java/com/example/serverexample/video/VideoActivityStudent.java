@@ -1097,7 +1097,7 @@ public class VideoActivityStudent extends AppCompatActivity {
     private void retrieveAccessTokenfromServer() {
 
 
-        this.accessToken = CustomFragmentStudent.token;
+        this.accessToken = CustomDialog.token;
         System.out.println(accessToken);
 
     }

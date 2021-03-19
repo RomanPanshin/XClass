@@ -65,8 +65,9 @@ public class CustomFragmentStudent extends DialogFragment {
 
             jsonurl2 = "https://borovik.fun/token/?identity=" + Person.name + "&room=" + lessonID;
 
-           //CustomDialogFragment.GetAccessToken getAccessToken = new CustomDialogFragment.GetAccessToken();
-         // getAccessToken.execute();
+           CustomFragmentStudent.GetAccessToken getAccessToken = new CustomFragmentStudent.GetAccessToken();
+          getAccessToken.execute();
+
           System.out.println("blyat");
         }
 
@@ -97,7 +98,7 @@ public class CustomFragmentStudent extends DialogFragment {
 
 
 
-    public class GetAccessTokenStudent extends AsyncTask<String, String, String> {
+    public class GetAccessToken extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -141,8 +142,10 @@ public class CustomFragmentStudent extends DialogFragment {
         }
         @Override
         protected void onPostExecute(String s) {
+
             System.out.println(s);
             token = s;
+
         }
 
 

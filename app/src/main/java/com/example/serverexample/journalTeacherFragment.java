@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.example.serverexample.video.CustomDialog;
 import com.example.serverexample.video.CustomDialogFragment;
 
 import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
@@ -93,7 +94,7 @@ cn = v.getContext();
 
         System.out.println(jsonurl);
 
-        if(!weekday_name.equals("Saturday") && !weekday_name.equals("Sunday")){
+        if(!weekday_name.equals("Sunday")){
             journalTeacherFragment.GetShedule getShedule = new journalTeacherFragment.GetShedule();
             getShedule.execute();
         }else{
@@ -211,7 +212,7 @@ cn = v.getContext();
                     transaction.replace(R.id.container1, fragment);
                     transaction.addToBackStack(null);
                     transaction.commit();*/
-                    CustomDialogFragment dialog = new CustomDialogFragment();
+                    CustomDialog dialog = new CustomDialog();
 
                   Bundle args = new Bundle();
                   args.putString("lessonID", value.get("id"));
